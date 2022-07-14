@@ -1,9 +1,13 @@
-# from django.db import models
+from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    pass
+    street = models.CharField(max_length=50, default='1313 Disneyland Dr')
+    city = models.CharField(max_length=30, default='Anaheim')
+    state = models.CharField(max_length=30, default='CA')
+    zipcode = models.IntegerField(default=92802)
+    
     '''
     This is a custom version of the built in User class
     It contains all of the built in fields and functionality of the standard User
