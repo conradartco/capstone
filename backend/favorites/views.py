@@ -18,3 +18,21 @@ def user_favorites(request):
 
     serializer = FavoritesSerializer(favorites, many=True)
     return Response(serializer.data)
+
+# POST new favorite movie (Auth Only)
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def add_favorite(request):
+    serializer = FavoritesSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+# DELETE movie from favorites (Auth Only)
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def remove_favorite(request, movieId):
+    favorite = get_object_or_404(Favorites, movie_id=movieId)
+    favorite.delete()
+    return Response(status=status.HTTP_204_NO_CONTENT)
