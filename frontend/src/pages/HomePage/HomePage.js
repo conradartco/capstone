@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 import FoundMovies from "../../components/FoundMovies/FoundMovies";
+import TopMovies from "../../components/TopMovies/TopMovies";
 import SearchMovies from "../../components/SearchMovies/SearchMovies";
 import { TMDbAPIKey } from "../../keys";
 
@@ -64,7 +65,7 @@ const HomePage = () => {
         <FoundMovies foundContent={searchedMovie}/>
       </div>
       <div>
-        <FoundMovies foundContent={topMovies}/>
+        <TopMovies foundContent={topMovies}/>
       </div>
     </div>
   );
