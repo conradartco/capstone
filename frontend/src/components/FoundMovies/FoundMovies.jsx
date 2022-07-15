@@ -9,8 +9,8 @@ const FoundMovies = (props) => {
                 return (
                     <div key={index}>
                         <div>
-                            {console.log("movie in FoundMovies map: ", movie)}
-                            <p>{movie.title}</p>
+                            <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
+                            {/* <p>{movie.title}</p> */}
                         </div>
                     </div>
                 )

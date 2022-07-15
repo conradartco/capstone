@@ -35,7 +35,7 @@ const HomePage = () => {
   useEffect(() => {
     const getTopMovies = async () => {
       try {
-        let response = await axios.get("https://api.themoviedb.org/3/trending/all/day?api_key=" + TMDbAPIKey);
+        let response = await axios.get("https://api.themoviedb.org/3/trending/movie/week?api_key=" + TMDbAPIKey);
         console.log("response.data.items in getTopMovies: ", response.data.results);
         setTopMovies(response.data.results)
       } catch (err) {
@@ -47,7 +47,7 @@ const HomePage = () => {
 
   async function searchFilter(query) {
     try {
-      let response = await axios.get("https://api.themoviedb.org/3/movie?api_key=" + TMDbAPIKey + "&query=" + query + "&page=1");
+      let response = await axios.get("https://api.themoviedb.org/3/movie?api_key=" + TMDbAPIKey + "&query=" + query + "&page=6");
       console.log("response.data in searchFilter", response.data.results);
       setSearchedMovie(response.data.results);
     } catch (err) {
