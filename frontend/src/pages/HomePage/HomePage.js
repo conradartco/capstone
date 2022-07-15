@@ -9,10 +9,11 @@ import { TMDbAPIKey } from "../../keys";
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
-  //TODO: Add an AddCars Page to add a car for a logged in user's garage
+  
   const [user, token] = useAuth();
-  const [cars, setCars] = useState([]);
+  // const [cars, setCars] = useState([]);
   const [searchedMovie, setSearchedMovie] = useState([]);
+  const [topMovies, setTopMovies] = useState([]);
 
   // useEffect(() => {
   //   const fetchCars = async () => {
@@ -30,11 +31,24 @@ const HomePage = () => {
   //   fetchCars();
   // }, [token]);
 
+  useEffect(() => {
+    const getTopMovies = async () => {
+      try {
+        let response = await axios.get("https://api.themoviedb.org/3/trending/all/day?api_key=" + TMDbAPIKey);
+        console.log("response.data.items in getTopMovies: ", response.data.results);
+        setTopMovies(response.data.results)
+      } catch (err) {
+        console.log("err in getTopMovies: ", err)
+      }
+    }
+    getTopMovies();
+  }, []);
+
   async function searchFilter(query) {
     try {
       let response = await axios.get("https://api.themoviedb.org/3/movie?api_key=" + TMDbAPIKey + "&query=" + query + "&page=1");
-      console.log("response.data in searchFilter", response.data);
-      setSearchedMovie(response.data);
+      console.log("response.data in searchFilter", response.data.results);
+      setSearchedMovie(response.data.results);
     } catch (err) {
       console.log("err in searchFilter: ", err);
     }
@@ -47,7 +61,10 @@ const HomePage = () => {
         <SearchMovies searchQueryData={searchFilter}/>
       </div>
       <div>
-        <FoundMovies />
+        <FoundMovies foundContent={searchedMovie}/>
+      </div>
+      <div>
+        <FoundMovies foundContent={topMovies}/>
       </div>
     </div>
   );
