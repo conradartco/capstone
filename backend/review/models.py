@@ -6,4 +6,4 @@ class Review(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     movie_id = models.CharField(max_length=255)
     text = models.CharField(max_length=255)
-    likes = models.IntegerField()
+    likes = models.IntegerField(default=0)
