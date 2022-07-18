@@ -17,6 +17,13 @@ const Review = (props) => {
                         </div>
                     )
                 }
+                else {
+                    return (
+                        <div>
+                            <p>No reviews yet!</p>
+                        </div>
+                    )
+                }
             })}
         </div>
     )

@@ -7,6 +7,7 @@ import useAuth from '../../hooks/useAuth';
 // Component Imports
 import ReviewList from '../../components/Review/ReviewList';
 import ReviewForm from '../../components/Review/ReviewForm';
+import MovieDetails from '../../components/MovieDetails/MovieDetails';
 
 const MoviePage = (props) => {
 
@@ -42,16 +43,20 @@ const MoviePage = (props) => {
     return (
         <div>
             <div>
-                <img src={"https://image.tmdb.org/t/p/w342" + movieSelect.poster_path} alt={movieSelect.title + " movie poster"}/>
-                {console.log("movieSelect in MoviePage body div: ", movieSelect)}
-                <p>{movieSelect.title}</p>
+                <img src={"https://image.tmdb.org/t/p/w342" + props.movieSelect.backdrop_path} alt={props.movieSelect.title + " movie still"}/>
             </div>
             <div>
-                <ReviewList movieContent={movieSelect} reRender={reRender}/>
+                <div>
+                    <MovieDetails movieContent={movieSelect} />
+                </div>
+                <div>
+                    <ReviewList movieContent={movieSelect} reRender={reRender}/>
+                </div>
+                <div>
+                    <ReviewForm movieContent={movieSelect} addNewReview={addNewReview}/>
+                </div>
             </div>
-            <div>
-                <ReviewForm movieContent={movieSelect} addNewReview={addNewReview}/>
-            </div>
+            
         </div>
     )
 }

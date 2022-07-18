@@ -12,14 +12,16 @@ const ReviewList = (props) => {
     useEffect(() => {
         const getReviews = async () => {
             try {
-                let response = await axios.get("http://127.0.0.1:8000/api/review/" + props.movieContent.id);
+                let response = await axios.get("http://127.0.0.1:8000/api/review/" + props.movieContent.id + "/");
+                
                 setReviews(response.data);
             } catch (err) {
                 console.log("err in getReviews: ", err);
+                console.log("props.movieContent in getReviews: ", props.movieContent);
             }
         }
         getReviews();
-    }, [props.reRender]);
+    }, [props.movieContent]);
 
     return (
         <div>

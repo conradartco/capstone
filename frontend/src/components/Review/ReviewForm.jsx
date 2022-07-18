@@ -22,7 +22,7 @@ const ReviewForm = (props) => {
 
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <div>
                     <input type="text" value={text} placeholder="Leave a Review" onChange={(event) => setText(event.target.value)} />
                 </div>
