@@ -1,7 +1,15 @@
+// General Imports
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
+
 // Component Imports
 import WatchlistButton from "../Watchlist/WatchlistButton";
+import FavoritesButton from "../Favorites/FavoritesButton";
+
 
 const MovieDetails = (props) => {
+
+    const { user } = useContext(AuthContext);
 
     return (
         <div>
@@ -21,7 +29,14 @@ const MovieDetails = (props) => {
                             <p>Director: </p>
                         </div>
                         <div>
-                            <WatchlistButton movieContent={props.movieContent}/>
+                            {user ? (
+                                <div>
+                                    <WatchlistButton movieContent={props.movieContent}/>
+                                    <FavoritesButton movieContent={props.movieContent}/>
+                                </div>
+                            ) : (
+                                <p></p>
+                            )}
                         </div>
                         <div>
                             <p>{props.movieContent.overview}</p>

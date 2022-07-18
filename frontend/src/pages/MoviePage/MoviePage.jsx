@@ -2,7 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { TMDbAPIKey } from '../../keys';
-import useAuth from '../../hooks/useAuth';
+import { useContext } from 'react';
+import AuthContext from '../../context/AuthContext';
 
 // Component Imports
 import ReviewList from '../../components/Review/ReviewList';
@@ -12,7 +13,7 @@ import MovieDetails from '../../components/MovieDetails/MovieDetails';
 const MoviePage = (props) => {
 
     const [movieSelect, setMovieSelect] = useState([]);
-    const [user, token] = useAuth();
+    const { token } = useContext(AuthContext);
     const [reRender, setReRender] = useState(true);
 
     useEffect(() => {
