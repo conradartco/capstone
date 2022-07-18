@@ -1,9 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const TopMovies = (props) => {
 
-    function confirmClick(movie) {
-        console.log("clicked: ", movie.title)
+    const navigate = useNavigate();
+
+    function selectMovie(movie) {
+        props.movieSelect(movie);
+        navigate('/movie');
     }
 
     return (
@@ -11,7 +15,7 @@ const TopMovies = (props) => {
             {props.foundContent.map((movie, index) => {
                 return (
                     <div key={index}>
-                        <div onClick={() => confirmClick(movie)}>
+                        <div onClick={() => selectMovie(movie)}>
                             <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
                             {/* <p>{movie.title}</p> */}
                         </div>

@@ -1,19 +1,20 @@
+// General Imports
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
-import FoundMovies from "../../components/FoundMovies/FoundMovies";
-import TopMovies from "../../components/TopMovies/TopMovies";
-import SearchMovies from "../../components/SearchMovies/SearchMovies";
 import { TMDbAPIKey } from "../../keys";
 
-const HomePage = () => {
+// Component Imports
+import TopMovies from "../../components/TopMovies/TopMovies";
+import UserSearchMovies from "../../components/UserSearchMovies/UserSearchMovies";
+
+const HomePage = (props) => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   
   const [user, token] = useAuth();
   // const [cars, setCars] = useState([]);
-  const [searchedMovie, setSearchedMovie] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
 
   // useEffect(() => {
@@ -43,29 +44,16 @@ const HomePage = () => {
       }
     }
     getTopMovies();
-  }, []);
-
-  async function searchFilter(query) {
-    try {
-      let response = await axios.get("https://api.themoviedb.org/3/movie?api_key=" + TMDbAPIKey + "&query=" + query + "&page=6");
-      console.log("response.data in searchFilter", response.data.results);
-      setSearchedMovie(response.data.results);
-    } catch (err) {
-      console.log("err in searchFilter: ", err);
-    }
-  }
+  }, []);  
 
 
   return (
     <div className="container">
       <div>
-        <SearchMovies searchQueryData={searchFilter}/>
+        <UserSearchMovies movieSelect={props.movieSelect}/>
       </div>
       <div>
-        <FoundMovies foundContent={searchedMovie}/>
-      </div>
-      <div>
-        <TopMovies foundContent={topMovies}/>
+        <TopMovies foundContent={topMovies} movieSelect={props.movieSelect}/>
       </div>
     </div>
   );
