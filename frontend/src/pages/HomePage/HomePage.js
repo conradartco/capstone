@@ -7,6 +7,7 @@ import { TMDbAPIKey } from "../../keys";
 
 // Component Imports
 import TopMovies from "../../components/TopMovies/TopMovies";
+import NewReleaseMovies from "../../components/NewReleaseMovies/NewReleaseMovies";
 import UserSearchMovies from "../../components/UserSearchMovies/UserSearchMovies";
 
 const HomePage = (props) => {
@@ -16,6 +17,7 @@ const HomePage = (props) => {
   const [user, token] = useAuth();
   // const [cars, setCars] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
+  const [soonMovies, setSoonMovies] = useState([]);
 
   // useEffect(() => {
   //   const fetchCars = async () => {
@@ -46,6 +48,18 @@ const HomePage = (props) => {
     getTopMovies();
   }, []);  
 
+  useEffect(() => {
+    const getSoonMovies = async () => {
+      try {
+        let response = await axios.get("https://api.themoviedb.org/3/movie/upcoming?api_key=" + TMDbAPIKey + "&language=en-US&page=1");
+        console.log("response.data.items in getSoonMovies: ", response.data.results);
+        setSoonMovies(response.data.results)
+      } catch (err) {
+        console.log("err in getSoonMovies: ", err)
+      }
+    }
+    getSoonMovies();
+  }, []);  
 
   return (
     <div className="container">
@@ -54,6 +68,9 @@ const HomePage = (props) => {
       </div>
       <div>
         <TopMovies foundContent={topMovies} movieSelect={props.movieSelect}/>
+      </div>
+      <div>
+        <NewReleaseMovies foundContent={soonMovies} movieSelect={props.movieSelect}/>
       </div>
     </div>
   );
