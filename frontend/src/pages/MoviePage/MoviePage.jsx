@@ -48,7 +48,7 @@ const MoviePage = (props) => {
             </div>
             <div>
                 <div>
-                    <MovieDetails movieContent={movieSelect} />
+                    <MovieDetails movieContent={movieSelect}/>
                 </div>
                 <div>
                     <ReviewList movieContent={movieSelect} reRender={reRender}/>

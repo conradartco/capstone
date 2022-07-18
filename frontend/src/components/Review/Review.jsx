@@ -1,13 +1,19 @@
+// General Imports
+import React, { useState } from 'react';
 import axios from 'axios';
 
 const Review = (props) => {
 
+    const [reRender, setReRender] = useState(true);
+
     const likeReview = async (review) => {
-        console.log("review: ", review);
         try {
-            let newLike = review.likes += 1;
-            let response = await axios.patch("http://127.0.0.1:8000/api/review/update/" + review.id + "/", newLike);
-            console.log("response in likeReview: ", response);
+            review.likes += 1;
+            let response = await axios.patch("http://127.0.0.1:8000/api/review/update/" + review.id + "/", review);
+            console.log("response.data in likeReview: ", response.data);
+            if(response.status === 200){
+                setReRender(!reRender);
+            }
         } catch (err) {
             console.log("err in likeReview: ", err);
         }
