@@ -1,5 +1,17 @@
+import axios from 'axios';
 
 const Review = (props) => {
+
+    const likeReview = async (review) => {
+        console.log("review: ", review);
+        try {
+            let newLike = review.likes += 1;
+            let response = await axios.patch("http://127.0.0.1:8000/api/review/update/" + review.id + "/", newLike);
+            console.log("response in likeReview: ", response);
+        } catch (err) {
+            console.log("err in likeReview: ", err);
+        }
+    }
 
     return (
         <div>
@@ -12,7 +24,7 @@ const Review = (props) => {
                             </div>
                             <div>
                                 <p>{review.likes}</p>
-                                <button>Like</button>
+                                <button onClick={() => likeReview(review)}>Like</button>
                             </div>
                         </div>
                     )

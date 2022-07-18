@@ -1,7 +1,8 @@
 // General Imports
 import React from "react";
 import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
+import { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 import axios from "axios";
 import { TMDbAPIKey } from "../../keys";
 
@@ -9,12 +10,13 @@ import { TMDbAPIKey } from "../../keys";
 import TopMovies from "../../components/TopMovies/TopMovies";
 import NewReleaseMovies from "../../components/NewReleaseMovies/NewReleaseMovies";
 import UserSearchMovies from "../../components/UserSearchMovies/UserSearchMovies";
+import WatchlistHome from "../../components/Watchlist/WatchlistHome";
 
 const HomePage = (props) => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
   // The "token" value is the JWT token that you will send in the header of any request requiring authentication
   
-  const [user, token] = useAuth();
+  const { user } = useContext(AuthContext);
   // const [cars, setCars] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
   const [soonMovies, setSoonMovies] = useState([]);
@@ -59,12 +61,22 @@ const HomePage = (props) => {
       }
     }
     getSoonMovies();
-  }, []);  
+  }, []);
+  
+  
 
   return (
     <div className="container">
       <div>
         <UserSearchMovies movieSelect={props.movieSelect}/>
+      </div>
+      <div>
+        {user ? (
+          // <WatchlistHome foundContent={} movieSelect={props.movieSelect}/>
+          <p></p>
+        ) : (
+          <p></p>
+        )}
       </div>
       <div>
         <TopMovies foundContent={topMovies} movieSelect={props.movieSelect}/>
