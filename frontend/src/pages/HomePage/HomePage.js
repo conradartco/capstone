@@ -72,8 +72,8 @@ const HomePage = (props) => {
       </div>
       <div>
         {user ? (
-          // <WatchlistHome foundContent={} movieSelect={props.movieSelect}/>
-          <p></p>
+          <WatchlistHome movieSelect={props.movieSelect}/>
+          // <p></p>
         ) : (
           <p></p>
         )}

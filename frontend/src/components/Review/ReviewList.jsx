@@ -13,11 +13,10 @@ const ReviewList = (props) => {
         const getReviews = async () => {
             try {
                 let response = await axios.get("http://127.0.0.1:8000/api/review/" + props.movieContent.id + "/");
-                
+                console.log("response.data in getReviews: ", response.data);
                 setReviews(response.data);
             } catch (err) {
                 console.log("err in getReviews: ", err);
-                console.log("props.movieContent in getReviews: ", props.movieContent);
             }
         }
         getReviews();
