@@ -10,6 +10,10 @@ const RegisterPage = () => {
     password: "",
     firstName: "",
     lastName: "",
+    street: "",
+    city: "",
+    state: "",
+    zipcode: "",
   };
   const [formData, handleInputChange, handleSubmit] = useCustomForm(
     defaultValues,
@@ -68,6 +72,44 @@ const RegisterPage = () => {
           NOTE: Make this an uncommon password with characters, numbers, and
           special characters!
         </p>
+      </form>
+      <form className="form" onSubmit={handleSubmit}>
+      <label>
+          Street:{" "}
+          <input
+            type="text"
+            name="street"
+            value={formData.street}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          City:{" "}
+          <input
+            type="text"
+            name="city"
+            value={formData.city}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          State:{" "}
+          <input
+            type="text"
+            name="state"
+            value={formData.state}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label>
+          Zip Code:{" "}
+          <input
+            type="text"
+            name="zipcode"
+            value={formData.zipcode}
+            onChange={handleInputChange}
+          />
+        </label>
         <button>Register!</button>
       </form>
     </div>

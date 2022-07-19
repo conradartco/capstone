@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import MoviePage from "./pages/MoviePage/MoviePage";
+import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -38,6 +39,12 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/profile" element={
+            <PrivateRoute>
+              <UserProfilePage movieSelect={movie}/>
+            </PrivateRoute>
+          }
+        />
       </Routes>
       <Footer />
     </div>
