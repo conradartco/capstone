@@ -26,18 +26,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<HomePage movieSelect={setMovie}/>} />
-        {/* <Route path="/" element={
-            <PrivateRoute>
-              <HomePage movieSelect={setMovie}/>
-            </PrivateRoute>
-          }
-        /> */}
-        {/* <Route path="/movie" element={
-            <PrivateRoute>
-              <MoviePage movieSelect={movie}/>
-            </PrivateRoute>
-          }
-        /> */}
         <Route path="/movie" element={<MoviePage movieSelect={movie}/>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />

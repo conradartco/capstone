@@ -9,6 +9,8 @@ import AuthContext from '../../context/AuthContext';
 import ReviewList from '../../components/Review/ReviewList';
 import ReviewForm from '../../components/Review/ReviewForm';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
+import MovieMedia from '../../components/MovieMedia/MovieMedia';
+
 
 const MoviePage = (props) => {
 
@@ -49,6 +51,19 @@ const MoviePage = (props) => {
             <div>
                 <div>
                     <MovieDetails movieContent={movieSelect}/>
+                </div>
+                <div>
+                    <h2>Watch Providers</h2>
+                    <hr></hr>
+                </div>
+                <div>
+                    <h2>Media</h2>
+                    <hr></hr>
+                    <MovieMedia movieContent={movieSelect}/>
+                </div>
+                <div>
+                    <h2>Reviews</h2>
+                    <hr></hr>
                 </div>
                 <div>
                     <ReviewList movieContent={movieSelect} reRender={reRender}/>
