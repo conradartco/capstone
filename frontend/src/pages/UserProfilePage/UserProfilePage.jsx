@@ -6,6 +6,7 @@ import AuthContext from "../../context/AuthContext";
 
 // Component Imports
 import WatchlistUser from '../../components/Watchlist/WatchlistUser';
+import FavoritesUser from '../../components/Favorites/FavoritesUser';
 
 const UserProfilePage = (props) => {
 
@@ -19,10 +20,14 @@ const UserProfilePage = (props) => {
             </div>
             <hr></hr>
             <div>
+                <h2>Watchlist</h2>
+                <hr></hr>
                 <WatchlistUser movieSelect={props.movieSelect}/>
             </div>
             <div>
-                <p>favorites</p>
+                <h2>Favorites</h2>
+                <hr></hr>
+                <FavoritesUser movieSelect={props.movieSelect}/>
             </div>
             <div>
                 <button onClick={logoutUser}>Logout</button>

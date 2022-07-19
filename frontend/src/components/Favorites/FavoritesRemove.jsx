@@ -4,32 +4,32 @@ import axios from "axios";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
-const WatchlistRemove = (props) => {
+const FavoritesRemove = (props) => {
 
     const { token } = useContext(AuthContext);
     const [reRender, setReRender] = useState(true);
 
-    async function removeWatchlistItem(movie) {
+    async function removeFavoriteItem(movie) {
         try {
-            let response = await axios.delete("http://127.0.0.1:8000/api/watchlist/remove/" + movie + "/", {
+            let response = await axios.delete("http://127.0.0.1:8000/api/favorites/remove/" + movie + "/", {
                 headers: {
                     Authorization: "Bearer " + token,
                 },
             });
-            console.log("response in removeWatchlistItem: ", response);
+            console.log("response in removeFavoriteItem: ", response);
             if(response.status === 204){
                 setReRender(!reRender);
             }
         } catch (err) {
-            console.log("err in removeWatchlistItem: ", err);
+            console.log("err in removeFavoriteItem: ", err);
         }   
     }
 
     return (
         <div>
-            <button onClick={() => removeWatchlistItem(props.movieId)} reRender={reRender}>Remove</button>
+            <button onClick={() => removeFavoriteItem(props.movieId)} reRender={reRender}>Remove</button>
         </div>
     )
 }
 
-export default WatchlistRemove;
+export default FavoritesRemove;
