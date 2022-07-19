@@ -25,23 +25,25 @@ function App() {
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={
+        <Route path="/" element={<HomePage movieSelect={setMovie}/>} />
+        {/* <Route path="/" element={
             <PrivateRoute>
               <HomePage movieSelect={setMovie}/>
             </PrivateRoute>
           }
-        />
-        <Route path="/movie" element={
+        /> */}
+        {/* <Route path="/movie" element={
             <PrivateRoute>
               <MoviePage movieSelect={movie}/>
             </PrivateRoute>
           }
-        />
+        /> */}
+        <Route path="/movie" element={<MoviePage movieSelect={movie}/>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={
             <PrivateRoute>
-              <UserProfilePage movieSelect={movie}/>
+              <UserProfilePage movieSelect={setMovie}/>
             </PrivateRoute>
           }
         />

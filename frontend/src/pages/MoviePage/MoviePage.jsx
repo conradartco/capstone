@@ -13,7 +13,7 @@ import MovieDetails from '../../components/MovieDetails/MovieDetails';
 const MoviePage = (props) => {
 
     const [movieSelect, setMovieSelect] = useState([]);
-    const { token } = useContext(AuthContext);
+    const { user, token } = useContext(AuthContext);
     const [reRender, setReRender] = useState(true);
 
     useEffect(() => {
@@ -54,7 +54,13 @@ const MoviePage = (props) => {
                     <ReviewList movieContent={movieSelect} reRender={reRender}/>
                 </div>
                 <div>
-                    <ReviewForm movieContent={movieSelect} addNewReview={addNewReview}/>
+                    {user ? (
+                        <div>
+                            <ReviewForm movieContent={movieSelect} addNewReview={addNewReview}/>
+                        </div>
+                    ) : (
+                        <p>Login or Register to leave a review!</p>
+                    )}
                 </div>
             </div>
             
