@@ -6,7 +6,10 @@ import { TMDbAPIKey } from '../../keys';
 import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 
-const WatchlistHome = (props) => {
+// Component Imports
+import WatchlistRemove from './WatchlistRemove';
+
+const WatchlistUser = (props) => {
 
     const navigate = useNavigate();
     const [watchlist, setWatchlist] = useState([]);
@@ -26,14 +29,11 @@ const WatchlistHome = (props) => {
                         Authorization: "Bearer " + token,
                     },
                 });
-                // console.log("response.data in getWatchlist: ", response.data);
                 let watchArray = [];
                 for (let i = 0; i < (response.data).length; i++) {
                     watchArray.push([(response.data)[i].movie_id]);
                 }
-                // console.log("watchArray in getWatchList: ", watchArray);
                 setWatchlist(watchArray);
-                // console.log("watchlist after for loop: ", watchlist);
             } catch (err) {
                 console.log("err in getWatchlist: ", err);
             }
@@ -51,16 +51,12 @@ const WatchlistHome = (props) => {
                 if(watchlist.length > 0){
                     let response = await axios.get("https://api.themoviedb.org/3/movie/" + watchlist[i] + "?api_key=" + TMDbAPIKey + "&language=en-US");
                     foundMovies.push(response.data);
-                    // console.log("response.data in getMoviesById: ", response.data);
                 } else {
                     return (console.log("No movies in watchlist"))
                 }
-                // console.log("foundMovies in getMoviesById: ", foundMovies);
                 movieResults.push(foundMovies);
             }
-            // console.log("movieResults in getMoviesById: ", movieResults);
             let resultFlat = movieResults.flat(2);
-            // console.log("resultFlat in getMoviesById: ", resultFlat);
             setMyMovies(resultFlat);
         }
         getMoviesById();
@@ -75,6 +71,7 @@ const WatchlistHome = (props) => {
                             <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
                             {/* <p>{movie.title}</p> */}
                         </div>
+                        <WatchlistRemove movieId={movie.id} reRender={props.reRender}/>
                     </div>
                 )
             })}
@@ -82,4 +79,4 @@ const WatchlistHome = (props) => {
     )
 }
 
-export default WatchlistHome;
+export default WatchlistUser;

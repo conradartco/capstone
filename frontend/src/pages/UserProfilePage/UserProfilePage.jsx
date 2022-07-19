@@ -1,22 +1,25 @@
+// General Imports
 import React from 'react';
 import { useContext } from 'react';
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
+
+// Component Imports
+import WatchlistUser from '../../components/Watchlist/WatchlistUser';
 
 const UserProfilePage = (props) => {
 
     const { logoutUser, user } = useContext(AuthContext);
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     return (
         <div>
             <div>
                 <h1>Hello {user.first_name}!</h1>
-                {console.log("user in profile: ", user)}
             </div>
             <hr></hr>
             <div>
-                <p>watchlist</p>
+                <WatchlistUser movieSelect={props.movieSelect}/>
             </div>
             <div>
                 <p>favorites</p>
