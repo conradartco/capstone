@@ -4,7 +4,7 @@ import axios from 'axios';
 import { TMDbAPIKey } from '../../keys';
 
 // Component Imports
-// import MovieVideoMap from './MovieVideoMap';
+import MovieVideoMap from './MovieVideoMap';
 
 const MovieMedia = (props) => {
 
@@ -26,7 +26,7 @@ const MovieMedia = (props) => {
 
     return (
         <div>
-            {/* <MovieVideoMap videoResults={movieVideos}/> */}
+            <MovieVideoMap videoResults={movieVideos}/>
         </div>
     )
 }
