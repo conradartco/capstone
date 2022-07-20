@@ -10,17 +10,17 @@ const MovieMedia = (props) => {
 
     const [movieVideos, setMovieVideos] = useState([]);
 
-    useEffect(() => {
-        const getMovieVideos = async () => {
-            console.log("props.movieContent in getMovieVideos: ", props.movieContent);
-            try {
-                let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/videos?api_key=" + TMDbAPIKey + "&language=en-US");
-                console.log("response.data.results in getMovieVideos: ", response.data.results);
-                setMovieVideos(response.data.results);
-            } catch (err) {
-                console.log("err in getMovieVideos: ", err);
-            }
+    const getMovieVideos = async () => {
+        try {
+            let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/videos?api_key=" + TMDbAPIKey + "&language=en-US");
+            // console.log("response.data.results in getMovieVideos: ", response.data.results);
+            setMovieVideos(response.data.results);
+        } catch (err) {
+            console.log("err in getMovieVideos: ", err);
         }
+    }
+
+    useEffect(() => {
         getMovieVideos();
     }, [props.movieContent]);
 

@@ -1,7 +1,6 @@
 // General Imports
 import React from 'react';
 import { useContext } from 'react';
-// import { useNavigate } from "react-router-dom";
 import AuthContext from "../../context/AuthContext";
 
 // Component Imports
@@ -11,7 +10,6 @@ import FavoritesUser from '../../components/Favorites/FavoritesUser';
 const UserProfilePage = (props) => {
 
     const { logoutUser, user } = useContext(AuthContext);
-    // const navigate = useNavigate();
 
     return (
         <div>

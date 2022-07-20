@@ -4,8 +4,6 @@ import React, { useState } from 'react';
 import { TMDbAPIKey } from "../../keys";
 import axios from "axios";
 
-
-
 const UserSearchMovies = (props) => {
 
     const [searchedMovie, setSearchedMovie] = useState([]);

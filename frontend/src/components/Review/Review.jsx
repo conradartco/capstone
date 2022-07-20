@@ -10,7 +10,7 @@ const Review = (props) => {
         try {
             review.likes += 1;
             let response = await axios.patch("http://127.0.0.1:8000/api/review/update/" + review.id + "/", review);
-            console.log("response.data in likeReview: ", response.data);
+            // console.log("response.data in likeReview: ", response.data);
             if(response.status === 200){
                 setReRender(!reRender);
             }

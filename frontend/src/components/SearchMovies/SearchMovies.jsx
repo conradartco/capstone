@@ -8,7 +8,7 @@ const SearchMovies = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         let newSearch = searchQuery.toLowerCase();
-        console.log("SearchBar handleSubmit value: ", newSearch);
+        // console.log("SearchBar handleSubmit value: ", newSearch);
         props.searchQueryData(newSearch);
     }
 
