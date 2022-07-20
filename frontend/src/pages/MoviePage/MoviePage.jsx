@@ -10,7 +10,7 @@ import ReviewList from '../../components/Review/ReviewList';
 import ReviewForm from '../../components/Review/ReviewForm';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
-
+import MovieProviders from '../../components/MovieProviders/MovieProviders';
 
 const MoviePage = (props) => {
 
@@ -55,6 +55,7 @@ const MoviePage = (props) => {
                 <div>
                     <h2>Watch Providers</h2>
                     <hr></hr>
+                    <MovieProviders movieContent={movieSelect} />
                 </div>
                 <div>
                     <h2>Media</h2>

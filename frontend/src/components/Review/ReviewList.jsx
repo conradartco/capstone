@@ -20,7 +20,7 @@ const ReviewList = (props) => {
             }
         }
         getReviews();
-    }, [props.movieContent]);
+    }, [props.movieContent.id]);
 
     return (
         <div>
