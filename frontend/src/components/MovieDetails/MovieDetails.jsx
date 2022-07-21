@@ -10,11 +10,13 @@ import WatchlistButton from "../Watchlist/WatchlistButton";
 import FavoritesButton from "../Favorites/FavoritesButton";
 import MovieDirector from "./MovieDirector";
 import MovieCast from './MovieCast';
+import MovieCert from './MovieCert';
 
 const MovieDetails = (props) => {
 
     const { user } = useContext(AuthContext);
     const [credits, setCredits] = useState(undefined);
+    const [cert, getCert] = useState({});
  
     const getMovieCredits = async () => {
         try {
@@ -30,6 +32,31 @@ const MovieDetails = (props) => {
         getMovieCredits();
     }, []);
 
+    const getMovieCert = async () => {
+        try {
+            let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/release_dates?api_key=" + TMDbAPIKey);
+            console.log("response in getMovieCert: ", response);
+            getCert(response.data.results)
+        } catch (err) {
+            console.log("err in getMovieCert: ", err);
+        }
+    }
+
+    useEffect(() => {
+        getMovieCert();
+    }, []);
+
+    let genreArray = props.movieContent.genres.map(genre => genre.name);
+
+    function runtimeOperation(x) {
+        var time = x;
+        var hours = (time / 60);
+        var totalHours = Math.floor(hours);
+        var minutes = (hours - totalHours) * 60;
+        var totalMinutes = Math.round(minutes);
+        return totalHours + "h " + totalMinutes + "m";
+    } 
+
     return (
         <div>
             <div>
@@ -42,7 +69,8 @@ const MovieDetails = (props) => {
                 <div>
                     <div>
                         <div>
-                            <p>{props.movieContent.release_date.slice(0, 4)} / {props.movieContent.runtime} minutes</p>
+                            <p></p>
+                            <p>{props.movieContent.release_date.slice(0, 4)} | {runtimeOperation(props.movieContent.runtime)} | {genreArray.join(" / ")}</p>
                         </div>
                         {credits !== undefined ?
                         <>
@@ -62,6 +90,10 @@ const MovieDetails = (props) => {
                             )}
                         </div>
                         <div>
+                            <p>{props.movieContent.tagline}</p>
+                        </div>
+                        <div>
+                            <h2>Overview</h2>
                             <p>{props.movieContent.overview}</p>
                         </div>
                     </div>

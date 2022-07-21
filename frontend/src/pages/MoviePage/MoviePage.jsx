@@ -17,7 +17,7 @@ const MoviePage = (props) => {
     const getSelectedMovie = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieSelect.id + "?api_key=" + TMDbAPIKey + "&language=en-US");
-            // console.log("response in getSelectedMovie: ", response);
+            console.log("response in getSelectedMovie: ", response);
             setMovieSelect(response.data);
         } catch (err) {
             console.log("err in getSelectedMovie: ", err);
@@ -53,6 +53,7 @@ const MoviePage = (props) => {
                 </div>
                 <div>
                     <h2>Watch Providers</h2>
+                    <p>Powered by JustWatch</p>
                     <hr></hr>
                     <MovieProviders movieContent={movieSelect} />
                 </div>

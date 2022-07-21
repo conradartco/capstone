@@ -13,9 +13,9 @@ const MovieDirector = (props) => {
     return (
         <div>
             {directorName.length < 2 ? (
-                <p>Director: {directorName}</p>
+                <p><strong>Director:</strong> {directorName}</p>
             ) : (
-                <p>Directors: {directorName[0]} and {directorName[1]}</p>
+                <p><strong>Directors:</strong> {directorName[0]} and {directorName[1]}</p>
             )}
         </div>
     )
