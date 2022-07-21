@@ -12,7 +12,7 @@ const TopMovies = (props) => {
 
     return (
         <div>
-            {props.foundContent.map((movie, index) => {
+            {props.foundContent.slice(0, 6).map((movie, index) => {
                 return (
                     <div key={index}>
                         <div onClick={() => selectMovie(movie)}>

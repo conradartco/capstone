@@ -5,7 +5,7 @@ const MovieVideoMap = (props) => {
 
     return (
         <div>
-            {props.videoResults.map((video, index) => {
+            {props.videoResults.slice(0, 3).map((video, index) => {
                 return (
                     <div key={index}>
                         <iframe width="300" height="169" title={video.name} src={"https://www.youtube.com/embed/" + video.key} />

@@ -7,7 +7,7 @@ import { TMDbAPIKey } from '../../keys';
 import ReviewList from '../../components/Review/ReviewList';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
-// import MovieProviders from '../../components/MovieProviders/MovieProviders';
+import MovieProviders from '../../components/MovieProviders/MovieProviders';
 
 const MoviePage = (props) => {
 
@@ -26,7 +26,7 @@ const MoviePage = (props) => {
 
     useEffect(() => {
         getSelectedMovie();
-    }, [props.movieSelect]);
+    }, [props.movieSelect.id]);
 
    
     return (
@@ -40,11 +40,11 @@ const MoviePage = (props) => {
                 <div>
                     <MovieDetails movieContent={movieSelect}/>
                 </div>
-                {/* <div>
+                <div>
                     <h2>Watch Providers</h2>
                     <hr></hr>
                     <MovieProviders movieContent={movieSelect} />
-                </div> */}
+                </div>
                 <div>
                     <h2>Media</h2>
                     <hr></hr>

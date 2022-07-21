@@ -1,15 +1,33 @@
 // General Imports
+import React, { useState, useEffect } from 'react';
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
+import { TMDbAPIKey } from '../../keys';
+import axios from 'axios';
 
 // Component Imports
 import WatchlistButton from "../Watchlist/WatchlistButton";
 import FavoritesButton from "../Favorites/FavoritesButton";
-
+import MovieDirector from "./MovieDirector";
 
 const MovieDetails = (props) => {
 
     const { user } = useContext(AuthContext);
+    const [credits, setCredits] = useState(undefined);
+ 
+    const getMovieCredits = async () => {
+        try {
+            let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/credits?api_key=" + TMDbAPIKey + "&language=en-US");
+            console.log("response in getMovieCredits: ", response.data);
+            setCredits(response.data);
+        } catch (err) {
+            console.log("err in getMovieCredits: ", err);
+        }
+    }
+
+    useEffect(() => {
+        getMovieCredits();
+    }, []);
 
     return (
         <div>
@@ -23,11 +41,15 @@ const MovieDetails = (props) => {
                 <div>
                     <div>
                         <div>
-                            <p>{props.movieContent.release_date} / {props.movieContent.runtime} minutes</p>
+                            <p>{props.movieContent.release_date.slice(0, 4)} / {props.movieContent.runtime} minutes</p>
                         </div>
+                        {credits !== undefined ?
+                        <>
                         <div>
-                            <p>Director: </p>
+                            <MovieDirector crewDetails={credits} />
                         </div>
+                        </>
+                        : null}
                         <div>
                             {user ? (
                                 <div>
