@@ -2,7 +2,7 @@
 
 const MovieCast = (props) => {
 
-    console.log("props.crewDetails in MovieCast: ", props.crewDetails);
+    // console.log("props.crewDetails in MovieCast: ", props.crewDetails);
 
     return (
         <div>

@@ -19,7 +19,7 @@ const MovieDetails = (props) => {
     const getMovieCredits = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/credits?api_key=" + TMDbAPIKey + "&language=en-US");
-            console.log("response in getMovieCredits: ", response.data);
+            // console.log("response in getMovieCredits: ", response.data);
             setCredits(response.data);
         } catch (err) {
             console.log("err in getMovieCredits: ", err);
