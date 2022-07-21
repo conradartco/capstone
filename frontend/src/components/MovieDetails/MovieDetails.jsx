@@ -9,6 +9,7 @@ import axios from 'axios';
 import WatchlistButton from "../Watchlist/WatchlistButton";
 import FavoritesButton from "../Favorites/FavoritesButton";
 import MovieDirector from "./MovieDirector";
+import MovieCast from './MovieCast';
 
 const MovieDetails = (props) => {
 
@@ -68,9 +69,13 @@ const MovieDetails = (props) => {
                         <div>
                             <p>{props.movieContent.vote_average}/10</p>
                         </div>
+                        {credits !== undefined ?
+                        <>
                         <div>
-                            <p>cast</p>
+                            <MovieCast crewDetails={credits} />
                         </div>
+                        </>
+                        : null}
                     </div>
                 </div> 
             </div>

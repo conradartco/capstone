@@ -26,7 +26,18 @@ const MoviePage = (props) => {
 
     useEffect(() => {
         getSelectedMovie();
+        // return () => {
+        //     setMovieSelect(null)
+        // }
     }, [props.movieSelect.id]);
+
+    // useEffect(() => {
+    //     setMovieSelect(JSON.parse(window.sessionStorage.getItem("movieSelect")));
+    // }, []);
+
+    // useEffect(() => {
+    //     window.sessionStorage.setItem("movieSelect", movieSelect);
+    // }, [movieSelect]);
 
    
     return (
