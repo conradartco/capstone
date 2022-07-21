@@ -1,0 +1,30 @@
+.cert-grade {
+    outline: solid;
+    width: fit-content;
+    padding-left: 8px;
+    padding-right: 10px;
+    border-radius: 2px;
+    color: darkgray;
+    margin-right: 15px;
+}
+
+.release-year {
+    color: darkgray;
+    font-size: large;
+    font-weight: 100;
+}
+
+.us-tag {
+    color: darkgray;
+    font-size: large;
+    font-weight:100;
+    margin-right: 10px;
+}
+
+.cert-date-flex {
+    display: flex;
+}
+
+.details-flex {
+    display: flex;
+}

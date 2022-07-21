@@ -11,12 +11,13 @@ import FavoritesButton from "../Favorites/FavoritesButton";
 import MovieDirector from "./MovieDirector";
 import MovieCast from './MovieCast';
 import MovieCert from './MovieCert';
+import './MovieDetails.css';
 
 const MovieDetails = (props) => {
 
     const { user } = useContext(AuthContext);
     const [credits, setCredits] = useState(undefined);
-    const [cert, getCert] = useState({});
+    const [cert, getCert] = useState(undefined);
  
     const getMovieCredits = async () => {
         try {
@@ -35,7 +36,7 @@ const MovieDetails = (props) => {
     const getMovieCert = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/release_dates?api_key=" + TMDbAPIKey);
-            console.log("response in getMovieCert: ", response);
+            // console.log("response in getMovieCert: ", response);
             getCert(response.data.results)
         } catch (err) {
             console.log("err in getMovieCert: ", err);
@@ -64,13 +65,17 @@ const MovieDetails = (props) => {
             </div>
             <div>
                 <div>
-                    <h2>{props.movieContent.title}</h2>
+                    <h2>{props.movieContent.title} <span className='release-year'>{"(" + props.movieContent.release_date.slice(0, 4) + ")"}</span></h2>
                 </div>
                 <div>
                     <div>
-                        <div>
-                            <p></p>
-                            <p>{props.movieContent.release_date.slice(0, 4)} | {runtimeOperation(props.movieContent.runtime)} | {genreArray.join(" / ")}</p>
+                        <div className='details-flex'>
+                            {cert !== undefined ?
+                            <>
+                            <MovieCert releaseInfo={cert} />
+                            </>
+                            : null}
+                            <p> | {runtimeOperation(props.movieContent.runtime)} | {genreArray.join(" / ")}</p>
                         </div>
                         {credits !== undefined ?
                         <>
