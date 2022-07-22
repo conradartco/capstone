@@ -21,7 +21,12 @@ const MovieCast = (props) => {
                             )}
                             </div>
                             <p><strong>{person.name}</strong></p>
-                            <p><small>{person.character}</small></p>
+                            {person.character ? (
+                                <p><small>{person.character}</small></p>
+                            ) : (
+                                <p><small>{"(role not documented)"}</small></p>
+                            )}
+                            
                         </div>
                     )
                 })}

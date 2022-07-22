@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
 
 const MovieProvidersMap = (props) => {
 
@@ -47,9 +46,9 @@ const MovieProvidersMap = (props) => {
                 {streaming.map((provider, index) => {
                     return (
                         <div key={index}>
-                            {/* <Link to={{ pathname: props.providerDetails.results.US.link }} target="_blank"> */}
+                            <a href={props.providerDetails.results.US.link} target="_blank">
                                 <img src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} /> 
-                            {/* </Link> */}
+                            </a>
                         </div>
                     )
                 })}
@@ -61,7 +60,9 @@ const MovieProvidersMap = (props) => {
                 {buyOrRent.map((provider, index) => {
                     return(
                         <div key={index}>
-                            <img src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} />
+                            <a href={props.providerDetails.results.US.link} target="_blank">
+                                <img src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} />
+                            </a>
                         </div>
                     )
                 })}
