@@ -27,7 +27,7 @@ const WatchlistRemove = (props) => {
 
     return (
         <div>
-            <button onClick={() => removeWatchlistItem(props.movieId)} reRender={reRender}>Remove</button>
+            <button onClick={() => removeWatchlistItem(props.movieId)} >Remove</button>
         </div>
     )
 }

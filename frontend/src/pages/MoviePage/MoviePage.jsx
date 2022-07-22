@@ -8,6 +8,7 @@ import ReviewList from '../../components/Review/ReviewList';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
 import MovieProviders from '../../components/MovieProviders/MovieProviders';
+import MovieImages from '../../components/MovieImages/MovieImages';
 import './MoviePage.css';
 
 const MoviePage = (props) => {
@@ -18,7 +19,7 @@ const MoviePage = (props) => {
     const getSelectedMovie = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieSelect.id + "?api_key=" + TMDbAPIKey + "&language=en-US");
-            console.log("response in getSelectedMovie: ", response);
+            // console.log("response in getSelectedMovie: ", response);
             setMovieSelect(response.data);
         } catch (err) {
             console.log("err in getSelectedMovie: ", err);
@@ -45,6 +46,13 @@ const MoviePage = (props) => {
             <div>
                 {movieHeader()}
             </div>
+            {movieSelect ?
+            <>
+            <div>
+                <MovieImages movieContent={movieSelect} />
+            </div>
+            </>
+            : null}
             <div>
                 {movieSelect ?
                 <>

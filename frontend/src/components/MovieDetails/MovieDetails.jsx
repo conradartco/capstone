@@ -58,8 +58,8 @@ const MovieDetails = (props) => {
         return totalHours + "h " + totalMinutes + "m";
     }
     
-    let ratingPercentage = Math.round((props.movieContent.vote_average / 10) * 100);
-    console.log(ratingPercentage);
+    // let ratingPercentage = Math.round((props.movieContent.vote_average / 10) * 100);
+    // console.log(ratingPercentage);
 
     return (
         <div>

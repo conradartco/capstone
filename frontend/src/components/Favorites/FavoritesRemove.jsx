@@ -27,7 +27,7 @@ const FavoritesRemove = (props) => {
 
     return (
         <div>
-            <button onClick={() => removeFavoriteItem(props.movieId)} reRender={reRender}>Remove</button>
+            <button onClick={() => removeFavoriteItem(props.movieId)} >Remove</button>
         </div>
     )
 }
