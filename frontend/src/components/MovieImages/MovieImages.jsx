@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { TMDbAPIKey } from '../../keys';
 import axios from 'axios';
 
+// Component Imports
+import MovieImagesMap from './MovieImagesMap';
+
 const MovieImages = (props) => {
 
     const [images, setImages] = useState(undefined);
@@ -27,6 +30,7 @@ const MovieImages = (props) => {
         <div>
             {images !== undefined ?
             <>
+            <MovieImagesMap imageContent={images}/>
             {images.logos.map((logo, index) => {
                 return(
                     <div key={index}>
