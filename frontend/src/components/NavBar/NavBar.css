@@ -1,7 +1,8 @@
 ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   list-style-type: none;
+  align-items: baseline;
 }
 
 li {
@@ -12,13 +13,13 @@ li {
   background: steelblue;
   box-shadow: 4px 2px 5px gray;
   color: white;
-  margin-bottom: 2rem;
   padding: 1.5rem 2rem;
 }
 
 .navBar button {
   background: transparent;
   border: 2px solid white;
+  border-radius: 5px;
   color: white;
   padding: 0.4rem 0.5rem;
 }
@@ -31,5 +32,6 @@ li {
 
 .brand {
   cursor: pointer;
-  font-size: 2rem;
+  font-size: 1.25rem;
+  margin-right: 1em;
 }

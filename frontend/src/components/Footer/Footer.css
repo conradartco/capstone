@@ -6,4 +6,17 @@ footer {
   padding: 1rem;
   text-align: center;
   width: 100%;
+  background: steelblue;
+  box-shadow: 4px 2px 5px gray;
+}
+
+.tmdb-logo {
+  width: 300px;
+}
+
+.tmdb-attr {
+  font-size:smaller;
+  /* color: #0d253f; */
+  /* color: #01b4e4; */
+  color: #90cea1;
 }

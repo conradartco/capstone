@@ -8,6 +8,7 @@ import ReviewList from '../../components/Review/ReviewList';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
 import MovieProviders from '../../components/MovieProviders/MovieProviders';
+import './MoviePage.css';
 
 const MoviePage = (props) => {
 
@@ -31,19 +32,18 @@ const MoviePage = (props) => {
         // }
     }, [props.movieSelect.id]);
 
-    // useEffect(() => {
-    //     setMovieSelect(JSON.parse(window.sessionStorage.getItem("movieSelect")));
-    // }, []);
-
-    // useEffect(() => {
-    //     window.sessionStorage.setItem("movieSelect", movieSelect);
-    // }, [movieSelect]);
-
+    function movieHeader() {
+        return (
+            <div className='header-container'>
+                <img className='movie-header' src={"https://image.tmdb.org/t/p/original" + props.movieSelect.backdrop_path} alt={props.movieSelect.title + " movie still"}/>
+            </div>
+        )
+    }
    
     return (
         <div>
             <div>
-                <img src={"https://image.tmdb.org/t/p/w342" + props.movieSelect.backdrop_path} alt={props.movieSelect.title + " movie still"}/>
+                {movieHeader()}
             </div>
             <div>
                 {movieSelect ?
