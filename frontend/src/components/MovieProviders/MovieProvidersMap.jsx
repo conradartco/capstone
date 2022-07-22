@@ -1,4 +1,9 @@
+// General Imports
 import React, { useState, useEffect } from 'react';
+
+// Component Imports
+import './MovieProviders.css';
+
 
 const MovieProvidersMap = (props) => {
 
@@ -43,29 +48,33 @@ const MovieProvidersMap = (props) => {
             {streaming !== undefined ?
             <div>
                 <h3>Available to Stream with</h3>
-                {streaming.map((provider, index) => {
-                    return (
-                        <div key={index}>
-                            <a href={props.providerDetails.results.US.link} target="_blank">
-                                <img src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} /> 
-                            </a>
-                        </div>
-                    )
-                })}
+                <div className='provider-container'>
+                    {streaming.map((provider, index) => {
+                        return (
+                            <div key={index}>
+                                <a href={props.providerDetails.results.US.link} target="_blank">
+                                    <img className='provider-icon' src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} /> 
+                                </a>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             : null}
             {buyOrRent !== undefined ?
             <div>
                 <h3>Available to Buy or Rent with</h3>
-                {buyOrRent.map((provider, index) => {
-                    return(
-                        <div key={index}>
-                            <a href={props.providerDetails.results.US.link} target="_blank">
-                                <img src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} />
-                            </a>
-                        </div>
-                    )
-                })}
+                <div className='provider-container'>
+                    {buyOrRent.map((provider, index) => {
+                        return(
+                            <div key={index}>
+                                <a href={props.providerDetails.results.US.link} target="_blank">
+                                    <img className='provider-icon' src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} />
+                                </a>
+                            </div>
+                        )
+                    })}
+                </div>
             </div>
             : null }
         </div>

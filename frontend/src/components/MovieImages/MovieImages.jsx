@@ -5,6 +5,7 @@ import axios from 'axios';
 
 // Component Imports
 import MovieImagesFade from './MovieImagesFade';
+import './MovieImages.css';
 
 const MovieImages = (props) => {
 
@@ -27,24 +28,10 @@ const MovieImages = (props) => {
     }, []);
 
     return (
-        <div>
+        <div className='fade-container'>
             {images !== undefined ?
             <>
             <MovieImagesFade imageContent={images}/>
-            {/* {images.logos.map((logo, index) => {
-                return(
-                    <div key={index}>
-                        <img src={"https://image.tmdb.org/t/p/w154" + logo.file_path} alt={props.movieContent.title + " logo image " + index}/>
-                    </div>
-                )
-            })}
-            {images.backdrops.map((backdrop, index) => {
-                return(
-                    <div key={index}>
-                        <img src={"https://image.tmdb.org/t/p/w300" + backdrop.file_path} alt={props.movieContent.title + " backdrop image " + index}/>
-                    </div>
-                )
-            })} */}
             </>
             : null}
         </div>

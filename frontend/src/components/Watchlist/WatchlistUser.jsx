@@ -13,7 +13,7 @@ const WatchlistUser = (props) => {
 
     const navigate = useNavigate();
     const [watchlist, setWatchlist] = useState([]);
-    const [myMovies, setMyMovies] = useState([]);
+    const [myMovies, setMyMovies] = useState(undefined);
     const { token } = useContext(AuthContext);
 
     function selectMovie(movie) {
@@ -64,6 +64,8 @@ const WatchlistUser = (props) => {
 
     return (
         <div>
+            {myMovies !== undefined ?
+            <>
             {myMovies.map((movie, index) => {
                 return (
                     <div key={index}>
@@ -75,6 +77,8 @@ const WatchlistUser = (props) => {
                     </div>
                 )
             })}
+            </>
+            : null }
         </div>
     )
 }

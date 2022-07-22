@@ -1,0 +1,10 @@
+.provider-container {
+    display: flex;
+}
+
+.provider-icon {
+    border-radius: 20px;
+    width: 85px;
+    height: 85px;
+    padding: 5px;
+}

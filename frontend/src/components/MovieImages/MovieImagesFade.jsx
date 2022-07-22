@@ -26,19 +26,19 @@ const MovieImagesFade = (props) => {
     }
 
     const properties = {
-        prevArrow: <button style={{ ...buttonStyle }}><img src={leftArrow}/></button>,
-        nextArrow: <button style={{ ...buttonStyle }}><img src={rightArrow}/></button>
+        prevArrow: <button style={{ ...buttonStyle }}><img src={leftArrow} alt="header slideshow left arrow"/></button>,
+        nextArrow: <button style={{ ...buttonStyle }}><img src={rightArrow} alt="header slideshow right arrow"/></button>
     }
 
     return (
-        <Fade autoplay={false} {...properties}>
+        <Fade {...properties}>
             {imageURLs.map((image, index) => {
                 return (
                     <div key={index}>
                         <img className='bg-style-new' src={image} alt={"header image " + index} />
                     </div>
                 )
-            }).slice(0, 6)}
+            }).slice(0, 8)}
         </Fade>
     )
 }
