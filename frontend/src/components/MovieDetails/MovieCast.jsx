@@ -1,3 +1,5 @@
+import React from 'react';
+import nullCastImage from '../../images/CAST-NOIMAGE-1.jpg';
 
 
 const MovieCast = (props) => {
@@ -17,7 +19,7 @@ const MovieCast = (props) => {
                             {person.profile_path !== null ? (
                                 <img src={"https://image.tmdb.org/t/p/w154" + person.profile_path} alt={person.name + " profile photo"}/>
                             ) : (
-                                <p>No photo</p>
+                                <img src={nullCastImage} alt="no actor image available" />
                             )}
                             </div>
                             <p><strong>{person.name}</strong></p>

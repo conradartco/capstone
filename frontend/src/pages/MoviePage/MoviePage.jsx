@@ -52,9 +52,6 @@ const MoviePage = (props) => {
                     <MovieDetails movieContent={movieSelect}/>
                 </div>
                 <div>
-                    <h2>Watch Providers</h2>
-                    <p>Powered by JustWatch</p>
-                    <hr></hr>
                     <MovieProviders movieContent={movieSelect} />
                 </div>
                 <div>

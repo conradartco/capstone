@@ -15,7 +15,7 @@ const MovieProviders = (props) => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/watch/providers?api_key=" + TMDbAPIKey);
             // console.log("response in getProviders: ", response);
-            // console.log("response.data in getProviders: ", response.data);
+            console.log("response.data in getProviders: ", response.data);
             setProviders(response.data);
         } catch (err) {
             console.log("err in getProviders: ", err);
@@ -31,6 +31,9 @@ const MovieProviders = (props) => {
             {providers !== undefined ?
             <>
             <div>
+                <h2>Watch Providers</h2>
+                <p>Powered by JustWatch</p>
+                <hr></hr>
                 <MovieProvidersMap providerDetails={providers} />
             </div>
             </>
