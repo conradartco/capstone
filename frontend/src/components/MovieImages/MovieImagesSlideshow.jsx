@@ -1,27 +1,27 @@
+// General Imports
 import React from 'react';
 import { Slide } from 'react-slideshow-image';
+
+// Component Imports
 import './MovieImages.css';
 import '../../../node_modules/react-slideshow-image/dist/styles.css';
 
 const MovieImagesSlideshow = (props) => {
 
-    const images = props.imageURLs;
-    // console.log("images in MovieImagesSlideshow: ", images);
+    const imageURLs = props.imageContent.backdrops.map((backdrop)  => {
+        return ("https://image.tmdb.org/t/p/original" + backdrop.file_path)
+    })
+    // console.log("imageURLs in MovieImagesSlideshow: ", imageURLs);
 
     return (
         <Slide autoplay={false}>
-            <div>
-                <div className='bg-style-new' style={{ 'backgroundImage': 'url(' + images[0] + ')' }}>
-                </div>
-            </div>
-            <div>
-                <div className='bg-style-new' style={{ 'backgroundImage': 'url(' + images[1] + ')' }}>
-                </div>
-            </div>
-            <div>
-                <div className='bg-style-new' style={{ 'backgroundImage': 'url(' + images[2] + ')' }}>
-                </div>
-            </div>
+            {imageURLs.map((image, index) => {
+                return (
+                    <div key={index}>
+                        <div className='bg-style-new' style={{ 'backgroundImage': 'url(' + image + ')' }} />
+                    </div>
+                )
+            }).slice(0, 6)}
         </Slide>
     )
 }

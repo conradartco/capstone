@@ -33,19 +33,19 @@ const MoviePage = (props) => {
         // }
     }, [props.movieSelect.id]);
 
-    function movieHeader() {
-        return (
-            <div className='header-container'>
-                <img className='movie-header' src={"https://image.tmdb.org/t/p/original" + props.movieSelect.backdrop_path} alt={props.movieSelect.title + " movie still"}/>
-            </div>
-        )
-    }
+    // function movieHeader() {
+    //     return (
+    //         <div className='header-container'>
+    //             <img className='movie-header' src={"https://image.tmdb.org/t/p/original" + props.movieSelect.backdrop_path} alt={props.movieSelect.title + " movie still"}/>
+    //         </div>
+    //     )
+    // }
    
     return (
         <div>
-            <div>
+            {/* <div>
                 {movieHeader()}
-            </div>
+            </div> */}
             {movieSelect ?
             <>
             <div>
