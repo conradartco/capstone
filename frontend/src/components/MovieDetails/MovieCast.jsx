@@ -17,7 +17,7 @@ const MovieCast = (props) => {
                         <div key={index} >
                             <div>
                             {person.profile_path !== null ? (
-                                <img className='cast-profile' src={"https://image.tmdb.org/t/p/original" + person.profile_path} alt={person.name + " profile photo"}/>
+                                <img className='cast-profile' src={"https://image.tmdb.org/t/p/w185" + person.profile_path} alt={person.name + " profile"}/>
                             ) : (
                                 <img className='cast-profile' src={nullCastImage} alt="no actor image available" />
                             )}

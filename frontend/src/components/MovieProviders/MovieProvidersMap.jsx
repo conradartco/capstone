@@ -53,7 +53,7 @@ const MovieProvidersMap = (props) => {
                         return (
                             <div key={index}>
                                 <a href={props.providerDetails.results.US.link} target="_blank">
-                                    <img className='provider-icon' src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} /> 
+                                    <img className='provider-icon' src={"https://image.tmdb.org/t/p/original" + provider.logo_path} alt={provider.provider_name} /> 
                                 </a>
                             </div>
                         )
@@ -69,7 +69,7 @@ const MovieProvidersMap = (props) => {
                         return(
                             <div key={index}>
                                 <a href={props.providerDetails.results.US.link} target="_blank">
-                                    <img className='provider-icon' src={"https://image.tmdb.org/t/p/w92" + provider.logo_path} alt={provider.provider_name} />
+                                    <img className='provider-icon' src={"https://image.tmdb.org/t/p/original" + provider.logo_path} alt={provider.provider_name} />
                                 </a>
                             </div>
                         )
