@@ -24,9 +24,15 @@ const MovieCert = (props) => {
 
     return (
         <div className='cert-date-flex'>
+            {gradeCrush !== undefined ? (
             <div>
                 <p className='cert-grade'>{gradeCrush.certification}</p>
             </div>
+            ) : (
+            <div>
+                <p className='cert-grade'>NR</p>
+            </div>
+            )}
             <div>
                 <p>{gradeCrush.release_date.slice(5, 7)} . {gradeCrush.release_date.slice(8, 10)} . {gradeCrush.release_date.slice(0, 4)} <span className='us-tag'>{"(US)"}</span></p>
             </div>

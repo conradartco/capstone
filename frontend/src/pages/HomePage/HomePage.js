@@ -12,6 +12,7 @@ import NewReleaseMovies from "../../components/NewReleaseMovies/NewReleaseMovies
 import UserSearchMovies from "../../components/UserSearchMovies/UserSearchMovies";
 import WatchlistHome from "../../components/Watchlist/WatchlistHome";
 import TopRatedMovies from "../../components/TopRatedMovies/TopRatedMovies";
+import DiscoverMovies from "../../components/DiscoverMovies/DiscoverMovies";
 
 const HomePage = (props) => {
   
@@ -92,6 +93,11 @@ const HomePage = (props) => {
         <h2>Top Rated</h2>
         <hr></hr>
         <TopRatedMovies foundContent={topRatedMovies} movieSelect={props.movieSelect}/>
+      </div>
+      <div>
+        <h2>Discover</h2>
+        <hr></hr>
+        <DiscoverMovies movieSelect={props.movieSelect}/>
       </div>
     </div>
   );

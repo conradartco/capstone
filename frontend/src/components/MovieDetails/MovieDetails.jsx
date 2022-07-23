@@ -36,7 +36,7 @@ const MovieDetails = (props) => {
     const getMovieCert = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieContent.id + "/release_dates?api_key=" + TMDbAPIKey);
-            // console.log("response in getMovieCert: ", response);
+            // console.log("response.data.results in getMovieCert: ", response.data.results);
             getCert(response.data.results)
         } catch (err) {
             console.log("err in getMovieCert: ", err);
