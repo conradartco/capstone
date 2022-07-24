@@ -1,10 +1,18 @@
+// General Imports
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// Component Imports
 import nullCastImage from '../../images/CAST-NOIMAGE-1.jpg';
 import './MovieDetails.css';
 
 const MovieCast = (props) => {
 
-    // console.log("props.crewDetails in MovieCast: ", props.crewDetails);
+    const navigate = useNavigate();
+
+    function getCastCrew(){
+        navigate('/cast');
+    }
 
     return (
         <div>
@@ -31,7 +39,10 @@ const MovieCast = (props) => {
                             
                         </div>
                     )
-                })}
+                }).slice(0, 10)}
+            </div>
+            <div onClick={() => getCastCrew()}>
+                <p>{"View Full Cast & Crew"}</p>
             </div>
         </div>
     )

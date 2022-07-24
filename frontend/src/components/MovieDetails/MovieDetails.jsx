@@ -112,7 +112,7 @@ const MovieDetails = (props) => {
                         {credits !== undefined ?
                         <>
                         <div>
-                            <MovieCast crewDetails={credits} />
+                            <MovieCast crewDetails={credits} movieContent={props.movieContent}/>
                         </div>
                         </>
                         : null}

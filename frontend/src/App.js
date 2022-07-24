@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import MoviePage from "./pages/MoviePage/MoviePage";
+import CastPage from "./pages/CastPage/CastPage";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 
 // Component Imports
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage movieSelect={setMovie}/>} />
         <Route path="/movie" element={<MoviePage movieSelect={movie}/>} />
+        <Route path="/cast" element={<CastPage movieSelect={movie}/>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={
