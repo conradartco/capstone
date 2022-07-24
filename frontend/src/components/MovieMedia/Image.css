@@ -1,0 +1,46 @@
+.lightbox {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  display: flex;
+  align-items: center;
+  align-items: center;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: opacity ease 1s;
+}
+  
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+  
+.show_image {
+  width: 100vw;
+  height: 100vh;
+  object-fit: contain;
+}
+
+.image_set {
+  height: 169px;
+}
+
+.poster_set {
+  height: 300px;
+}
+
+.image-container {
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 800px;
+  overflow-x: auto;
+}

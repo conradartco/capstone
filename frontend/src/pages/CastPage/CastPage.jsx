@@ -11,12 +11,12 @@ const CastPage = (props) => {
     const [credits, setCredits] = useState(undefined);
     const [logo, setLogo] = useState(undefined);
 
-    console.log("props.movieSelect in CastPage: ", props.movieSelect);
+    // console.log("props.movieSelect in CastPage: ", props.movieSelect);
 
     const getMovieCredits = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieSelect.id + "/credits?api_key=" + TMDbAPIKey + "&language=en-US");
-            console.log("response in getMovieCredits: ", response.data);
+            // console.log("response in getMovieCredits: ", response.data);
             setCredits(response.data);
         } catch (err) {
             console.log("err in getMovieCredits: ", err);
@@ -30,7 +30,7 @@ const CastPage = (props) => {
     const getMovieLogo = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/movie/" + props.movieSelect.id + "/images?api_key=" + TMDbAPIKey + "&language=en-US&include_image_language=en,null");
-            console.log("response in getMovieLogo: ", response.data.logos);
+            // console.log("response in getMovieLogo: ", response.data.logos);
             setLogo(response.data.logos);
         } catch (err) {
             console.log("err in getMovieLogo: ", err);
