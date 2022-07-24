@@ -115,84 +115,66 @@ const DiscoverMovies = (props) => {
 
     return(
         <div>
+            <div>
+                <button onClick={() =>{
+                    handleClickNetflix(() => {
+                        setShowNetflix(current => !current);
+                    });
+                }}>Netflix</button>
+                <button onClick={() =>{
+                    handleClickAmazon(() => {
+                        setShowAmazon(current => !current);
+                    });
+                }}>Amazon Prime</button>
+                <button onClick={() =>{
+                    handleClickHbo(() => {
+                        setShowHbo(current => !current);
+                    });
+                }}>HBO Max</button>
+                <button onClick={() =>{
+                    handleClickDisney(() => {
+                        setShowDisney(current => !current);
+                    });
+                }}>Disney+</button>
+                <button onClick={() =>{
+                    handleClickHulu(() => {
+                        setShowHulu(current => !current);
+                    });
+                }}>Hulu</button>
+            </div>
             {netflixMovies !== undefined ?
             <div>
-                <div>
-                    <button onClick={() =>{
-                        handleClickNetflix(() => {
-                            setShowNetflix(current => !current);
-                        });
-                    }}>Netflix</button>
-                </div>
-                <div>
-                    {showNetflix && (
-                        <DiscoverMoviesMap discoverResults={netflixMovies} movieSelect={props.movieSelect} />
-                    )}
-                </div>
+                {showNetflix && (
+                    <DiscoverMoviesMap discoverResults={netflixMovies} movieSelect={props.movieSelect} />
+                )}
             </div>
             :null}
             {amazonMovies !== undefined ?
             <div>
-                <div>
-                    <button onClick={() =>{
-                        handleClickAmazon(() => {
-                            setShowAmazon(current => !current);
-                        });
-                    }}>Amazon Prime</button>
-                </div>
-                <div>
-                    {showAmazon && (
-                        <DiscoverMoviesMap discoverResults={amazonMovies} movieSelect={props.movieSelect} />
-                    )}
-                </div>
+                {showAmazon && (
+                    <DiscoverMoviesMap discoverResults={amazonMovies} movieSelect={props.movieSelect} />
+                )}
             </div>
             :null}
             {hboMovies !== undefined ?
             <div>
-                <div>
-                    <button onClick={() =>{
-                        handleClickHbo(() => {
-                            setShowHbo(current => !current);
-                        });
-                    }}>HBO Max</button>
-                </div>
-                <div>
-                    {showHbo && (
-                        <DiscoverMoviesMap discoverResults={hboMovies} movieSelect={props.movieSelect} />
-                    )}
-                </div>
+                {showHbo && (
+                    <DiscoverMoviesMap discoverResults={hboMovies} movieSelect={props.movieSelect} />
+                )}
             </div>
             :null}
             {disneyMovies !== undefined ?
             <div>
-                <div>
-                    <button onClick={() =>{
-                        handleClickDisney(() => {
-                            setShowDisney(current => !current);
-                        });
-                    }}>Disney+</button>
-                </div>
-                <div>
-                    {showDisney && (
-                        <DiscoverMoviesMap discoverResults={disneyMovies} movieSelect={props.movieSelect} />
-                    )}
-                </div>
+                {showDisney && (
+                    <DiscoverMoviesMap discoverResults={disneyMovies} movieSelect={props.movieSelect} />
+                )}
             </div>
             :null}
             {huluMovies !== undefined ?
             <div>
-                <div>
-                    <button onClick={() =>{
-                        handleClickHulu(() => {
-                            setShowHulu(current => !current);
-                        });
-                    }}>Hulu</button>
-                </div>
-                <div>
-                    {showHulu && (
-                        <DiscoverMoviesMap discoverResults={huluMovies} movieSelect={props.movieSelect} />
-                    )}
-                </div>
+                {showHulu && (
+                    <DiscoverMoviesMap discoverResults={huluMovies} movieSelect={props.movieSelect} />
+                )}
             </div>
             :null}
         </div>
