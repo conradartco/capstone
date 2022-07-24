@@ -35,7 +35,7 @@ button:hover {
 
 .container {
   margin: 0 auto;
-  max-width: 600px;
+  max-width: 1080px;
   overflow: auto;
   text-align: center;
 }
@@ -55,4 +55,25 @@ button:hover {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.movie-list-viewport {
+  display: flex;
+  overflow-x: auto;
+}
+
+.movie-list-icon {
+  padding-right: 10px;
+}
+
+.home-header-container {
+  width: 100%;
+  height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  display: inline-grid;
+  justify-items: center;
+  align-items: center;
 }

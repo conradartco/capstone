@@ -13,6 +13,8 @@ import UserSearchMovies from "../../components/UserSearchMovies/UserSearchMovies
 import WatchlistHome from "../../components/Watchlist/WatchlistHome";
 import TopRatedMovies from "../../components/TopRatedMovies/TopRatedMovies";
 import DiscoverMovies from "../../components/DiscoverMovies/DiscoverMovies";
+import FoundMovies from "../../components/FoundMovies/FoundMovies";
+import homeHeroImage from "../../images/CAPSTONE-HEROIMAGE-01-test.jpg";
 
 const HomePage = (props) => {
   
@@ -20,6 +22,7 @@ const HomePage = (props) => {
   const [topMovies, setTopMovies] = useState([]);
   const [soonMovies, setSoonMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [searchedMovie, setSearchedMovie] = useState(undefined);
 
   const getTopMovies = async () => {
     try {
@@ -63,53 +66,58 @@ const HomePage = (props) => {
     getTopRatedMovies();
   }, []);
 
-  // function movieHeader() {
-  //     return (
-  //         <div className='header-container'>
-  //             <img className='movie-header' src={"https://image.tmdb.org/t/p/original" + props.movieSelect.backdrop_path} alt={props.movieSelect.title + " movie still"}/>
-  //         </div>
-  //     )
-  // }
+  function movieHeader() {
+      return (
+          <div className="home-header-container" style={{ backgroundImage: 'url(' + homeHeroImage + ')' }}>
+            <UserSearchMovies movieSelect={props.movieSelect} movieFromSearch={setSearchedMovie}/>
+          </div>
+      )
+  }
 
   return (
-    <div className="container">
-      {/* <div>
+    <div>
+      <div>
         {movieHeader()}
-      </div> */}
-      <div>
-        <UserSearchMovies movieSelect={props.movieSelect}/>
       </div>
-      <div>
-        {user ? (
-          <div>
-            <h2>My Watchlist</h2>
-            <hr></hr>
-            <WatchlistHome movieSelect={props.movieSelect}/>
-          </div>
-        ) : (
-          <p></p>
-        )}
+      <div className="container">
+        {searchedMovie !== undefined ?
+        <div>
+          <FoundMovies movieSelect={props.movieSelect} foundContent={searchedMovie} />
+        </div>
+        : null}
+        <div>
+          {user ? (
+            <div>
+              <h2>My Watchlist</h2>
+              <hr></hr>
+              <WatchlistHome movieSelect={props.movieSelect}/>
+            </div>
+          ) : (
+            <p></p>
+          )}
+        </div>
+        <div>
+          <h2>Trending</h2>
+          <hr></hr>
+          <TopMovies foundContent={topMovies} movieSelect={props.movieSelect}/>
+        </div>
+        <div>
+          <h2>Coming Soon</h2>
+          <hr></hr>
+          <NewReleaseMovies foundContent={soonMovies} movieSelect={props.movieSelect}/>
+        </div>
+        <div>
+          <h2>Top Rated</h2>
+          <hr></hr>
+          <TopRatedMovies foundContent={topRatedMovies} movieSelect={props.movieSelect}/>
+        </div>
+        <div>
+          <h2>Discover</h2>
+          <hr></hr>
+          <DiscoverMovies movieSelect={props.movieSelect}/>
+        </div>
       </div>
-      <div>
-        <h2>Trending</h2>
-        <hr></hr>
-        <TopMovies foundContent={topMovies} movieSelect={props.movieSelect}/>
-      </div>
-      <div>
-        <h2>Coming Soon</h2>
-        <hr></hr>
-        <NewReleaseMovies foundContent={soonMovies} movieSelect={props.movieSelect}/>
-      </div>
-      <div>
-        <h2>Top Rated</h2>
-        <hr></hr>
-        <TopRatedMovies foundContent={topRatedMovies} movieSelect={props.movieSelect}/>
-      </div>
-      <div>
-        <h2>Discover</h2>
-        <hr></hr>
-        <DiscoverMovies movieSelect={props.movieSelect}/>
-      </div>
+      
     </div>
   );
 };

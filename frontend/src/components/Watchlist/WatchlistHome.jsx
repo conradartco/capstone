@@ -6,6 +6,9 @@ import { TMDbAPIKey } from '../../keys';
 import { useContext } from 'react';
 import AuthContext from '../../context/AuthContext';
 
+// Component Imports
+import '../../App.css';
+
 const WatchlistHome = (props) => {
 
     const navigate = useNavigate();
@@ -41,8 +44,6 @@ const WatchlistHome = (props) => {
         getWatchlist();
     }, []);
 
-    
-
     useEffect(() => {
         const getMoviesById = async () => {
             let movieResults = [];
@@ -67,11 +68,11 @@ const WatchlistHome = (props) => {
     }, [watchlist]);
 
     return (
-        <div>
+        <div className="movie-list-viewport">
             {myMovies.map((movie, index) => {
                 return (
                     <div key={index}>
-                        <div onClick={() => selectMovie(movie)}>
+                        <div className='movie-list-icon' onClick={() => selectMovie(movie)}>
                             <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
                             {/* <p>{movie.title}</p> */}
                         </div>
