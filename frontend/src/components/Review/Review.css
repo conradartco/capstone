@@ -1,0 +1,70 @@
+.review-fullwidth {
+    width: inherit;
+}
+
+.review-container {
+    font-family: 'Montserrat';
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.review-text {
+    padding: 20px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    width: 540px;
+    margin-right: 20px;
+}
+
+.review-like-button {
+    padding: 20px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    font-size: 17px;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+}
+
+.review-like-button:hover {
+    background-color: darkgray;
+}
+
+.review-like-count {
+    color: lightgray;
+}
+
+.review-form {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family: 'Montserrat';
+}
+
+.review-input {
+    padding: 20px;
+    width: 540px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin-right: 20px;
+    font-family: inherit;
+}
+
+.review-submit {
+    padding: 20px;
+    width: 100px;
+    border: none;
+    border-radius: 30px;
+    font-family: inherit;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.review-submit:hover {
+    background-color: darkgray;
+}

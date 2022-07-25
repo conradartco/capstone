@@ -31,7 +31,7 @@ const MovieProviders = (props) => {
         <div>
             {providers !== undefined ?
             <>
-            <div>
+            <div className='provder-height'>
                 <div className='provider-headline'>
                     <h2>Watch Providers</h2>
                     <p>Powered by JustWatch</p>

@@ -4,6 +4,9 @@ import axios from "axios";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
+// Component Imports
+import '../../pages/UserProfilePage/UserProfilePage.css';
+
 const FavoritesRemove = (props) => {
 
     const { token } = useContext(AuthContext);
@@ -26,8 +29,8 @@ const FavoritesRemove = (props) => {
     }
 
     return (
-        <div>
-            <button onClick={() => removeFavoriteItem(props.movieId)} >Remove</button>
+        <div className='remove-container'>
+            <button className='remove-button' onClick={() => removeFavoriteItem(props.movieId)} ><i style={{ color: "gray" }} className="fa-solid fa-circle-minus fa-3x"/></button>
         </div>
     )
 }

@@ -13,24 +13,28 @@ const UserProfilePage = (props) => {
 
     return (
         <div>
-            <div>
-                <h1>Hello {user.first_name}!</h1>
-            </div>
-            <hr></hr>
-            <div>
-                <h2>Watchlist</h2>
+            <div className="container">
+                <div className='user-profile-headline'>
+                    <h1 className='user-headline'>Hello {user.first_name}!</h1>
+                </div>
                 <hr></hr>
-                <WatchlistUser movieSelect={props.movieSelect}/>
+                <div className="viewport-container">
+                    <h2>Watchlist</h2>
+                    <hr></hr>
+                    <WatchlistUser movieSelect={props.movieSelect}/>
+                </div>
+                <div className="viewport-container">
+                    <h2>Favorites</h2>
+                    <hr></hr>
+                    <FavoritesUser movieSelect={props.movieSelect}/>
+                </div>
+                
             </div>
-            <div>
-                <h2>Favorites</h2>
-                <hr></hr>
-                <FavoritesUser movieSelect={props.movieSelect}/>
-            </div>
-            <div>
-                <button onClick={logoutUser}>Logout</button>
+            <div className='user-logout-container'>
+                <button className='user-logout-button' onClick={logoutUser}>Logout</button>
             </div>
         </div>
+        
     )
 }
 

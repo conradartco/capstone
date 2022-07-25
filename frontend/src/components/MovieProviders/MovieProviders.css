@@ -2,9 +2,31 @@
     display: flex;
 }
 
+.provider-height {
+    margin-bottom: 30px;
+}
+
 .provider-icon {
     border-radius: 20px;
     width: 85px;
     height: 85px;
     padding: 5px;
+}
+
+.provider-monetype {
+    padding: 6px;
+    padding-left: 12px;
+    background-color: darkgray;
+    color: white;
+    width: 100%;
+    text-align: left;
+    text-transform: uppercase;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    font-style: oblique;
+}
+
+.watch-provider-box {
+    margin-bottom: 35px;
 }

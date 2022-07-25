@@ -16,3 +16,27 @@
 .media {
     margin-right: 15px;
 }
+
+.back-container {
+    display: grid;
+    width: 1080px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.back-button {
+    margin-top: 30px;
+    transform: translateY(50px);
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: larger;
+    text-transform: uppercase;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.back-button:hover {
+    background-color: darkgray;
+}

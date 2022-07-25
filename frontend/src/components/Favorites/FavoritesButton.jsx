@@ -4,7 +4,6 @@ import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
 // Component Imports
-import favoriteIcon from "../../images/fav-icon.png";
 
 const FavoritesButton = (props) => {
 
@@ -34,7 +33,7 @@ const FavoritesButton = (props) => {
 
     return (
         <div>
-            <button className="movie-add-buttons" onClick={handleClick}><span className="button-text">Favorites</span></button>
+            <button className="movie-add-buttons" onClick={handleClick}><i style={{ color: "gray" }} className="fa-solid fa-star fa-2xl"/><span className="button-text">Favorites</span></button>
         </div>
     )
 }

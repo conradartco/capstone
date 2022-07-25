@@ -1,10 +1,16 @@
 // General Imports
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useContext } from 'react';
+import AuthContext from '../../context/AuthContext';
+
+// Component Imports
+import "./Review.css";
 
 const Review = (props) => {
 
     const [reRender, setReRender] = useState(true);
+    const { user } = useContext(AuthContext);
 
     const likeReview = async (review) => {
         try {
@@ -19,18 +25,24 @@ const Review = (props) => {
         }
     }
 
+    // function getUserName(id) {
+    //     // console.log("user in getUserName: ", user);
+    //     if(id === user.id){
+    //         return (user.username)
+    //     }
+    // }
+
     return (
-        <div>
+        <div className='review-fullwidth'>
             {props.reviewContent.map((review, index) => {
                 if(review) {
                     return (
-                        <div key={index}>
-                            <div>
-                                <p>{review.text}</p>
+                        <div className='review-container' key={index}>
+                            <div className='review-text'>
+                                <p style={{ fontSize: '16px' }}>{review.text}</p>
                             </div>
                             <div>
-                                <p>{review.likes}</p>
-                                <button onClick={() => likeReview(review)}>Like</button>
+                                <button className='review-like-button' onClick={() => likeReview(review)}><i style={{ color: "gray" }} class="fa-solid fa-heart"/><span className='review-like-count'>{review.likes}</span></button>
                             </div>
                         </div>
                     )

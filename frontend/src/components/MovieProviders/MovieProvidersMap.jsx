@@ -46,13 +46,13 @@ const MovieProvidersMap = (props) => {
     return (
         <div>
             {streaming !== undefined ?
-            <div>
-                <h3>Available to Stream with</h3>
+            <div className='watch-provider-box'>
+                <h3 className='provider-monetype'>Streaming</h3>
                 <div className='provider-container'>
                     {streaming.map((provider, index) => {
                         return (
                             <div key={index}>
-                                <a href={props.providerDetails.results.US.link} target="_blank">
+                                <a href={props.providerDetails.results.US.link} target="_blank" rel="noreferrer">
                                     <img className='provider-icon' src={"https://image.tmdb.org/t/p/w300" + provider.logo_path} alt={provider.provider_name} /> 
                                 </a>
                             </div>
@@ -62,13 +62,13 @@ const MovieProvidersMap = (props) => {
             </div>
             : null}
             {buyOrRent !== undefined ?
-            <div>
-                <h3>Available to Buy or Rent with</h3>
+            <div className='watch-provider-box'>
+                <h3 className='provider-monetype'>Buy or Rent</h3>
                 <div className='provider-container'>
                     {buyOrRent.map((provider, index) => {
                         return(
                             <div key={index}>
-                                <a href={props.providerDetails.results.US.link} target="_blank">
+                                <a href={props.providerDetails.results.US.link} target="_blank" rel="noreferrer">
                                     <img className='provider-icon' src={"https://image.tmdb.org/t/p/w300" + provider.logo_path} alt={provider.provider_name} />
                                 </a>
                             </div>

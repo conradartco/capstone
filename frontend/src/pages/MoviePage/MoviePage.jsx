@@ -1,5 +1,6 @@
 // General Imports
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { TMDbAPIKey } from '../../keys';
 
@@ -14,6 +15,7 @@ import './MoviePage.css';
 const MoviePage = (props) => {
 
     const [movieSelect, setMovieSelect] = useState(null);
+    const navigate = useNavigate();
     // const [reRender, setReRender] = useState(true);
 
     const getSelectedMovie = async () => {
@@ -67,6 +69,9 @@ const MoviePage = (props) => {
                 </div>
                 </>
                 :null}
+            </div>
+            <div className='back-container'>
+                <button className='back-button' onClick={() => navigate(-1)}>Back</button>
             </div>
         </div>
     )

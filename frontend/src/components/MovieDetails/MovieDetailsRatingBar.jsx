@@ -27,7 +27,11 @@ const RatingBar = ({color, percentage, height}) => {
     return (
         <div style={barContainer}>
             <div style={barBody}>
-                <span  style={barText}><small>User Rating <strong>{percentage + '%'}</strong></small></span>
+                {percentage !== 0 ? (
+                    <span style={barText}><small>User Rating <strong>{percentage + '%'}</strong></small></span>
+                ) : (
+                    <span></span>
+                )}
             </div>
         </div>
     )

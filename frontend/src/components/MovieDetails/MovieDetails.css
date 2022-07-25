@@ -147,17 +147,12 @@
 }
 
 .movie-add-buttons {
-    padding: 20px 30px;
     width: 230px;
-    font-family: inherit;
-    font-weight: 500;
-    text-transform: uppercase;
-    font-size: large;
-    text-align: end;
     margin-top: 20px;
     margin-bottom: 20px;
     border: none;
     border-radius: 30px;
+    padding: 20px 30px;
 }
 
 .movie-add-buttons:hover {
@@ -165,5 +160,9 @@
 }
 
 .button-text {
-    margin-left: 35px;
+    margin-left: 32px;
+    font-family: 'Montserrat';
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: large;
 }

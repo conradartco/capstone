@@ -8,6 +8,7 @@ import AuthContext from '../../context/AuthContext';
 
 // Component Imports
 import WatchlistRemove from './WatchlistRemove';
+import '../../pages/UserProfilePage/UserProfilePage.css';
 
 const WatchlistUser = (props) => {
 
@@ -63,17 +64,18 @@ const WatchlistUser = (props) => {
     }, [myMovies]);
 
     return (
-        <div>
+        <div className="user-list-viewport">
             {myMovies !== undefined ?
             <>
             {myMovies.map((movie, index) => {
                 return (
-                    <div key={index}>
-                        <div onClick={() => selectMovie(movie)}>
-                            <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
-                            {/* <p>{movie.title}</p> */}
-                        </div>
+                    <div className='user-list-container' key={index}>
                         <WatchlistRemove movieId={movie.id} />
+                        <div className='movie-list-icon' onClick={() => selectMovie(movie)}>
+                            <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
+                            <p><small><strong>{movie.title}</strong> {'('+movie.release_date.slice(0, 4)+')'}</small></p>
+                        </div>
+                        
                     </div>
                 )
             })}

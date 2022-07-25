@@ -1,6 +1,9 @@
 // General Imports
 import React, { useState } from 'react';
 
+// Component Imports
+import './Review.css';
+
 const ReviewForm = (props) => {
 
     const [text, setText] = useState('');
@@ -16,12 +19,12 @@ const ReviewForm = (props) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className='review-form' onSubmit={handleSubmit}>
                 <div>
-                    <input type="text" value={text} placeholder="Leave a Review" onChange={(event) => setText(event.target.value)} />
+                    <input className='review-input' type="text" value={text} placeholder="Leave a Review" onChange={(event) => setText(event.target.value)} />
                 </div>
                 <div>
-                    <button type="submit">Add</button>
+                    <button className='review-submit' type="submit">Add</button>
                 </div>
             </form>
         </div>
