@@ -32,20 +32,9 @@ const MoviePage = (props) => {
         //     setMovieSelect(null)
         // }
     }, [props.movieSelect.id]);
-
-    // function movieHeader() {
-    //     return (
-    //         <div className='header-container'>
-    //             <img className='movie-header' src={"https://image.tmdb.org/t/p/original" + props.movieSelect.backdrop_path} alt={props.movieSelect.title + " movie still"}/>
-    //         </div>
-    //     )
-    // }
    
     return (
         <div>
-            {/* <div>
-                {movieHeader()}
-            </div> */}
             {movieSelect ?
             <>
             <div>
@@ -59,20 +48,22 @@ const MoviePage = (props) => {
                 <div>
                     <MovieDetails movieContent={movieSelect}/>
                 </div>
-                <div>
-                    <MovieProviders movieContent={movieSelect} />
-                </div>
-                <div>
-                    <h2>Media</h2>
-                    <hr></hr>
-                    <MovieMedia movieContent={movieSelect}/>
-                </div>
-                <div>
-                    <h2>Reviews</h2>
-                    <hr></hr>
-                </div>
-                <div>
-                    <ReviewList movieContent={movieSelect} />
+                <div className='bottom-content'>
+                    <div>
+                        <MovieProviders movieContent={movieSelect} />
+                    </div>
+                    <div>
+                        <h2>Media</h2>
+                        <hr></hr>
+                        <MovieMedia movieContent={movieSelect}/>
+                    </div>
+                    <div>
+                        <h2>Reviews</h2>
+                        <hr></hr>
+                    </div>
+                    <div>
+                        <ReviewList movieContent={movieSelect} />
+                    </div>
                 </div>
                 </>
                 :null}

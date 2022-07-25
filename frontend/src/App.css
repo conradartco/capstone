@@ -55,10 +55,11 @@ button:hover {
   font-family: inherit;
   font-size: 1rem;
   background-color: transparent;
-  border: none;
+  border: 1px solid gray;
   border-radius: 10px;
-  width: 210px;
-  margin-top: 10px;
+  width: 195px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .click-tab:hover {
@@ -122,26 +123,31 @@ button:hover {
   display: inline-flex;
   flex-wrap: wrap;
   margin-top: 20px;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .movies-found-icon {
   margin-bottom: 35px;
-  margin-right: 18px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
-  width: 342px;
+  width: 310px;
 }
 
 .poster-fit {
-  width: 342px;
-  height: 513px;
+  width: 310px;
+  height: 465px;
   object-fit: cover;
   margin-bottom: 5px;
 }
 
 .viewport-container {
   margin-bottom: 30px;
-  margin-top: 65px;
+  margin-top: 30px;
+  padding: 35px;
+  background-color: white;
+  border-radius: 8px;
 }
 
 .search-container {
@@ -152,7 +158,7 @@ button:hover {
 ::-webkit-scrollbar {
   width: 12px;
   height: 12px;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(241, 241, 241);
   border-radius: 10px;
 }
 

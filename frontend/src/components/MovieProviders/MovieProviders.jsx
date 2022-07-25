@@ -5,6 +5,7 @@ import { TMDbAPIKey } from '../../keys';
 
 // Component Imports
 import MovieProvidersMap from './MovieProvidersMap';
+import '../../pages/MoviePage/MoviePage.css';
 
 const MovieProviders = (props) => {
 
@@ -31,8 +32,10 @@ const MovieProviders = (props) => {
             {providers !== undefined ?
             <>
             <div>
-                <h2>Watch Providers</h2>
-                <p>Powered by JustWatch</p>
+                <div className='provider-headline'>
+                    <h2>Watch Providers</h2>
+                    <p>Powered by JustWatch</p>
+                </div>
                 <hr></hr>
                 <MovieProvidersMap providerDetails={providers} />
             </div>

@@ -33,9 +33,6 @@ const MovieCert = (props) => {
                 <p className='cert-grade'>NR</p>
             </div>
             )}
-            <div>
-                <p>{gradeCrush.release_date.slice(5, 7)} . {gradeCrush.release_date.slice(8, 10)} . {gradeCrush.release_date.slice(0, 4)} <span className='us-tag'>{"(US)"}</span></p>
-            </div>
         </div>
     )
 }

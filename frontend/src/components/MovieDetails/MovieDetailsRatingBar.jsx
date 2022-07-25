@@ -2,31 +2,32 @@ import React from 'react';
 
 const RatingBar = ({color, percentage, height}) => {
 
-    const BarContainer = {
+    const barContainer = {
         height: height,
         width: "100%",
-        backgroundColor: "white",
+        backgroundColor: "whitesmoke",
         borderRadius: 40,
-        margin: 10
     }
 
-    const BarBody = {
+    const barBody = {
         height: "100%",
         width: percentage + '%',
         backgroundColor: color,
         borderRadius: 40,
-        textAlign: 'right'
+        textAlign: "end"
     }
 
-    const BarText = {
-        padding: 10,
-        color: 'black'
+    const barText = {
+        padding: 15,
+        color: 'black',
+        textAlign: "end"
     }
+
 
     return (
-        <div style={BarContainer}>
-            <div style={BarBody}>
-                <span style={BarText}>{percentage + '%'} User Rating</span>
+        <div style={barContainer}>
+            <div style={barBody}>
+                <span  style={barText}><small>User Rating <strong>{percentage + '%'}</strong></small></span>
             </div>
         </div>
     )

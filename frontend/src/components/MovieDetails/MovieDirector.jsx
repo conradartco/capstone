@@ -1,4 +1,8 @@
+// General Imports
 import React from 'react';
+
+// Component Imports
+import './MovieDetails.css';
 
 const MovieDirector = (props) => {
 
@@ -11,7 +15,7 @@ const MovieDirector = (props) => {
     // console.log(directorName);
 
     return (
-        <div>
+        <div className='director-field'>
             {directorName.length < 2 ? (
                 <p><strong>Director:</strong> {directorName}</p>
             ) : (

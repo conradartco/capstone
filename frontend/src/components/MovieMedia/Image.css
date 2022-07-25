@@ -31,16 +31,22 @@
 
 .image_set {
   height: 169px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-right: 15px;
 }
 
 .poster_set {
   height: 300px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  margin-right: 15px;
 }
 
 .image-container {
   display: flex;
   margin-top: 10px;
   margin-bottom: 20px;
-  width: 800px;
+  width: 100%;
   overflow-x: auto;
 }

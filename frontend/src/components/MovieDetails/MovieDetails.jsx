@@ -60,37 +60,34 @@ const MovieDetails = (props) => {
     }
 
     return (
-        <div>
-            <div>
-                <img src={"https://image.tmdb.org/t/p/w342" + props.movieContent.poster_path} alt={props.movieContent.title + " movie poster"}/>
-            </div>
-            <div>
+        <div className='movie-card'>
+            <div className='movie-poster-and-details'>
                 <div>
-                    <h2>{props.movieContent.title} <span className='release-year'>{"(" + props.movieContent.release_date.slice(0, 4) + ")"}</span></h2>
-                </div>
-                <div>
-                    <MovieDetailsRatingBar color="darkgray" percentage={Math.round((props.movieContent.vote_average / 10) * 100)} height={20} />
+                    <img className='poster-image' src={"https://image.tmdb.org/t/p/w500" + props.movieContent.poster_path} alt={props.movieContent.title + " movie poster"}/>
                 </div>
                 <div>
                     <div>
+                        <h2 className='movie-headline'>{props.movieContent.title} <span className='release-year'>{"(" + props.movieContent.release_date.slice(0, 4) + ")"}</span></h2>
+                        <div className="rating-bar">
+                            <MovieDetailsRatingBar color="darkgray" percentage={Math.round((props.movieContent.vote_average / 10) * 100)} height={25} />
+                        </div>
+                        <hr></hr>
+                    </div>
+                    <div>
                         <div className='details-flex'>
-                            {cert !== undefined ?
-                            <>
-                            <MovieCert releaseInfo={cert} />
-                            </>
+                            <div className='cert-and-info'>
+                                {cert !== undefined ?
+                                    <MovieCert releaseInfo={cert} />
+                                : null}
+                                <p>{props.movieContent.release_date.slice(5, 7)} . {props.movieContent.release_date.slice(8, 10)} . {props.movieContent.release_date.slice(0, 4)} <span className='us-tag'>{"(US)"}</span> {runtimeOperation(props.movieContent.runtime)}</p>
+                            </div>
+                            
+                            <p>{genreArray.join(" / ")}</p>
+                            {credits !== undefined ?
+                                <MovieDirector crewDetails={credits} />
                             : null}
-                            <p> | {runtimeOperation(props.movieContent.runtime)} | {genreArray.join(" / ")}</p>
-                        </div>
-                        {credits !== undefined ?
-                        <>
-                        <div>
-                            <MovieDirector crewDetails={credits} />
-                        </div>
-                        </>
-                        : null}
-                        <div>
                             {user ? (
-                                <div>
+                                <div className='user-add-buttons'>
                                     <WatchlistButton movieContent={props.movieContent}/>
                                     <FavoritesButton movieContent={props.movieContent}/>
                                 </div>
@@ -98,28 +95,20 @@ const MovieDetails = (props) => {
                                 <p></p>
                             )}
                         </div>
+                        
+                        <p className='movie-tagline'>{props.movieContent.tagline}</p>
                         <div>
-                            <p>{props.movieContent.tagline}</p>
-                        </div>
-                        <div>
-                            <h2>Overview</h2>
-                            <p>{props.movieContent.overview}</p>
+                            <p className='overview-tag'><strong>Overview</strong></p>
+                            <p className='overview-body'>{props.movieContent.overview}</p>
                         </div>
                     </div>
-                    <div>
-                        <div>
-                            <p>{props.movieContent.vote_average}/10</p>
-                        </div>
-                        {credits !== undefined ?
-                        <>
-                        <div>
-                            <MovieCast crewDetails={credits} movieContent={props.movieContent}/>
-                        </div>
-                        </>
-                        : null}
-                    </div>
-                </div> 
+                </div>
             </div>
+            {credits !== undefined ?
+            <div>
+                <MovieCast crewDetails={credits} movieContent={props.movieContent}/>
+            </div>
+            : null}
         </div>
     )
 }

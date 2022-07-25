@@ -3,6 +3,9 @@ import axios from "axios";
 import { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 
+// Component Imports
+import favoriteIcon from "../../images/fav-icon.png";
+
 const FavoritesButton = (props) => {
 
     const { token } = useContext(AuthContext);
@@ -31,7 +34,7 @@ const FavoritesButton = (props) => {
 
     return (
         <div>
-            <button onClick={handleClick}>Favorites</button>
+            <button className="movie-add-buttons" onClick={handleClick}><span className="button-text">Favorites</span></button>
         </div>
     )
 }

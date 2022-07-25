@@ -60,17 +60,17 @@ const MovieMedia = (props) => {
     return (
         <div>
             <div>
-                <button onClick={() => {
+                <button className='click-tab media' onClick={() => {
                     handleClickVideos(() => {
                         setShowVideos(current => !current);
                     })
                 }}>Trailers</button>
-                <button onClick={() => {
+                <button className='click-tab media' onClick={() => {
                     handleClickImages(() => {
                         setShowImages(current => !current);
                     })
                 }}>Images</button>
-                <button onClick={() => {
+                <button className='click-tab media' onClick={() => {
                     handleClickPosters(() => {
                         setShowPosters(current => !current);
                     })
@@ -80,21 +80,33 @@ const MovieMedia = (props) => {
                 {movieVideos !== undefined ?
                 <div>
                     {showVideos && (
-                    <MovieVideoMap videoResults={movieVideos}/>
+                        <>
+                        <h3>Trailers and Other Media</h3>
+                        <hr></hr>
+                        <MovieVideoMap videoResults={movieVideos}/>
+                        </>
                     )}
                 </div>
                 : null}
                 {images !== undefined ?
                 <div>
                     {showImages && (
-                    <MovieMediaImageMap imageContent={images} />
+                        <>
+                        <h3>Images</h3>
+                        <hr></hr>
+                        <MovieMediaImageMap imageContent={images} />
+                        </>
                     )}
                 </div>
                 : null}
                 {images !== undefined ?
                 <div>
                     {showPosters && (
-                    <MovieMediaPosterMap imageContent={images} />
+                        <>
+                        <h3>Posters</h3>
+                        <hr></hr>
+                        <MovieMediaPosterMap imageContent={images} />
+                        </>
                     )}
                 </div>
                 : null}

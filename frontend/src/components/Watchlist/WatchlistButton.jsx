@@ -31,7 +31,7 @@ const WatchlistButton = (props) => {
 
     return (
         <div>
-            <button onClick={handleClick}>Watchlist</button>
+            <button className="movie-add-buttons" onClick={handleClick}><span className="button-text">Watchlist</span></button>
         </div>
     )
 }
