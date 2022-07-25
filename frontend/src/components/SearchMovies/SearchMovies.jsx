@@ -17,7 +17,7 @@ const SearchMovies = (props) => {
 
     return (
         <div>
-            <form className='form-container' onSubmit={handleSubmit}>
+            <form className='search-form-container' onSubmit={handleSubmit}>
                 <div>
                     <input className='search-input' type="str" value={searchQuery} placeholder="Search for a movie" onChange={(event) => setSearchQuery(event.target.value)}/>
                 </div>

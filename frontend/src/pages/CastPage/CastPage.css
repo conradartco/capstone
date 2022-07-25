@@ -1,5 +1,9 @@
 .cast-id {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    break-inside: avoid-column;
+    background-color: lightgray;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 .logo-header {
@@ -16,4 +20,48 @@
     display: inline-grid;
     justify-items: center;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.cast-and-crew-container {
+    width: 1080px;
+    padding: 35px;
+    background-color: white;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+.credits-group {
+    margin-top: 30px;
+    column-count: 2;
+    column-rule: 1px solid gray;
+    column-rule-style: dotted;
+    column-gap: 50px;
+    max-height: 840px;
+    overflow-x: auto;
+}
+
+.cast-back-container {
+    display: grid;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cast-back-button {
+    transform: translateY(-40px);
+    font-family: 'Montserrat';
+    font-weight: 800;
+    font-size: larger;
+    text-transform: uppercase;
+    padding: 20px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+}
+
+.cast-back-button:hover {
+    background-color: darkgray;
 }

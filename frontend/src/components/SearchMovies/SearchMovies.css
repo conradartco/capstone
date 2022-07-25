@@ -7,7 +7,7 @@
     font-size: 17px;
 }
 
-.form-container {
+.search-form-container {
     display: flex;
     flex-wrap: nowrap;
 }

@@ -10,7 +10,11 @@
     border-radius: 20px;
     width: 85px;
     height: 85px;
-    padding: 5px;
+    margin: 5px;
+}
+
+.provider-icon:hover {
+    opacity: 0.5;
 }
 
 .provider-monetype {

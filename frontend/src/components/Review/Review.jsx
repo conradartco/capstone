@@ -10,7 +10,7 @@ import "./Review.css";
 const Review = (props) => {
 
     const [reRender, setReRender] = useState(true);
-    const { user } = useContext(AuthContext);
+    // const { user } = useContext(AuthContext);
 
     const likeReview = async (review) => {
         try {

@@ -1,7 +1,10 @@
+// General Imports
 import React, { useContext, useEffect } from "react";
 import AuthContext from "../../context/AuthContext";
 import useCustomForm from "../../hooks/useCustomForm";
 import { Link } from "react-router-dom";
+
+// Component Imports
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -19,31 +22,36 @@ const LoginPage = () => {
   }, [isServerError]);
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit}>
-        <label>
-          Username:{" "}
+    <div className="login-container">
+      <form className="login-form" onSubmit={handleSubmit}>
+        <div className="input-field">
+          <label>Username</label>
           <input
+            className="login-input"
             type="text"
             name="username"
             value={formData.username}
             onChange={handleInputChange}
           />
-        </label>
-        <label>
-          Password:{" "}
+        </div>
+        <div className="input-field">
+          <label>Password</label>
           <input
+            className="login-input secret"
             type="text"
             name="password"
             value={formData.password}
             onChange={handleInputChange}
           />
-        </label>
-        {isServerError ? (
-          <p className="error">Login failed, incorrect credentials!</p>
-        ) : null}
-        <Link to="/register">Click to register!</Link>
-        <button>Login!</button>
+        </div>
+        <div className="link-field">
+          {isServerError ? (
+            <p className="error">Login failed, incorrect credentials</p>
+          ) : null}
+          <Link to="/register"><span className="register-link">Register</span></Link>
+          <button className="login-submit">Login</button>
+        </div>
+        
       </form>
     </div>
   );

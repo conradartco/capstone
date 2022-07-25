@@ -1,5 +1,6 @@
 // General Imports
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { TMDbAPIKey } from '../../keys';
 
@@ -10,6 +11,7 @@ const CastPage = (props) => {
 
     const [credits, setCredits] = useState(undefined);
     const [logo, setLogo] = useState(undefined);
+    const navigate = useNavigate();
 
     // console.log("props.movieSelect in CastPage: ", props.movieSelect);
 
@@ -59,52 +61,64 @@ const CastPage = (props) => {
         <div>
             {movieHeader()}
             <div>
-                <h2>Cast</h2>
-            </div>
-            <div>
-                {credits !== undefined ?
-                <div>
-                    {credits.cast.map((actor, index) => {
-                        return(
-                            <div key={index} className="cast-id">
-                                <p><strong>{actor.name}</strong></p>
-                                {actor.character ? (
-                                    <p><small>{actor.character}</small></p>
-                                ) : (
-                                    <p><small>{"(role not documented)"}</small></p>
-                                )}
-                            </div>
-                        )
-                    })}
+                <div className='cast-back-container'>
+                    <button className='cast-back-button' onClick={() => navigate(-1)}>Back to Movie</button>
                 </div>
-                : null}
-            </div>
-            <div>
-                <h2>Crew</h2>
-            </div>
-            <div>
-                {credits !== undefined ?
-                <div>
-                    {credits.crew.map((crew, index) => {
-                        return(
-                            <div key={index} className="cast-id">
-                                <p><strong>{crew.name}</strong></p>
-                                {crew.department ? (
-                                    <p><small>Department: {crew.department}</small></p>
-                                ) : (
-                                    <p><small>Department: {"(not documented)"}</small></p>
-                                )}
-                                {crew.job ? (
-                                    <p><small>Job: {crew.job}</small></p>
-                                ) : (
-                                    <p><small>Job: {"(not documented)"}</small></p>
-                                )}
-                            </div>
-                        )
-                    })}
+                <div className='cast-and-crew-container'>
+                    <div>
+                        <h2>Cast</h2>
+                    </div>
+                    <hr></hr>
+                    <div className='credits-group'>
+                        {credits !== undefined ?
+                        <div>
+                            {credits.cast.map((actor, index) => {
+                                return(
+                                    <div key={index} className="cast-id">
+                                        <p><strong>{actor.name}</strong></p>
+                                        {actor.character ? (
+                                            <p><small>{actor.character}</small></p>
+                                        ) : (
+                                            <p><small>{"(role not documented)"}</small></p>
+                                        )}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        : null}
+                    </div>
                 </div>
-                : null}
+                <div className='cast-and-crew-container'>
+                    <div>
+                        <h2>Crew</h2>
+                    </div>
+                    <hr></hr>
+                    <div className='credits-group'>
+                        {credits !== undefined ?
+                        <div>
+                            {credits.crew.map((crew, index) => {
+                                return(
+                                    <div key={index} className="cast-id">
+                                        <p><strong>{crew.name}</strong></p>
+                                        {crew.department ? (
+                                            <p><small>Department: {crew.department}</small></p>
+                                        ) : (
+                                            <p><small>Department: {"(not documented)"}</small></p>
+                                        )}
+                                        {crew.job ? (
+                                            <p><small>Job: {crew.job}</small></p>
+                                        ) : (
+                                            <p><small>Job: {"(not documented)"}</small></p>
+                                        )}
+                                    </div>
+                                )
+                            })}
+                        </div>
+                        : null}
+                    </div>
+                </div>
             </div>
+            
         </div>
     )
 }

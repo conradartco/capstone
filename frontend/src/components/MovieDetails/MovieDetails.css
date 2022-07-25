@@ -156,7 +156,11 @@
 }
 
 .movie-add-buttons:hover {
-    background-color: darkgray;
+    background-color:darkseagreen
+}
+
+.add-button-effect:hover {
+    opacity: 0.65;
 }
 
 .button-text {

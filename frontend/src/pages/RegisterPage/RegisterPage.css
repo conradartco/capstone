@@ -1,0 +1,99 @@
+.form-container {
+    width: 865px;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    border-radius: 20px;
+    height: 600px;
+}
+
+.register-container {
+    display: grid;
+    align-items: center;
+}
+
+label {
+    margin-top: 10px;
+}
+
+.register-form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-form {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.register-input {
+    padding: 15px 20px;
+    width: 350px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.password-note {
+    font-size: 13px;
+    width: 320px;
+    padding-right: 20px;
+    color: gray;
+}
+
+.state-input {
+    padding: 15px 20px;
+    width: 165px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.zip-input {
+    padding: 15px 20px;
+    width: 165px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    font-family: 'Montserrat';
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.state-zip-flex {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: space-between;
+}
+
+.register-button-container {
+    display:grid;
+    justify-items: center;
+}
+
+.register-button {
+    padding: 15px 20px;
+    font-family: 'Montserrat';
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: larger;
+    width: 350px;
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    transform: translateY(40px);
+}
+
+.register-button:hover {
+    background-color: darkgray;
+}

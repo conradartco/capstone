@@ -38,7 +38,7 @@ const MovieImagesFade = (props) => {
                         <img className='bg-style-new' src={image} alt={"header image " + index} />
                     </div>
                 )
-            }).slice(0, 8)}
+            }).slice(1, 9)}
         </Fade>
     )
 }
