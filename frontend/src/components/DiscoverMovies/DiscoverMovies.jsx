@@ -18,7 +18,7 @@ const DiscoverMovies = (props) => {
     const getNetflix = async () => {
         try {
             let response = await axios.get("https://api.themoviedb.org/3/discover/movie?api_key=" + TMDbAPIKey + "&language=en-US&sort_by=popularity.desc&certification_country=US&certification.gte=G&include_adult=false&include_video=false&page=1&with_watch_providers=8&watch_region=US&with_watch_monetization_types=flatrate");
-            // console.log("response in getNetflix: ", response);
+            console.log("response in getNetflix: ", response);
             setNetflixMovies(response.data.results);
         } catch (err) {
             console.log("err in getNetflix: ", err)
@@ -115,65 +115,85 @@ const DiscoverMovies = (props) => {
 
     return(
         <div>
-            <div>
-                <button onClick={() =>{
+            <div className='tab-container'>
+                <button className='click-tab' onClick={() =>{
                     handleClickNetflix(() => {
                         setShowNetflix(current => !current);
                     });
-                }}>Netflix</button>
-                <button onClick={() =>{
+                }}>NETFLIX</button>
+                <button className='click-tab' onClick={() =>{
                     handleClickAmazon(() => {
                         setShowAmazon(current => !current);
                     });
-                }}>Amazon Prime</button>
-                <button onClick={() =>{
+                }}>PRIME VIDEO</button>
+                <button className='click-tab' onClick={() =>{
                     handleClickHbo(() => {
                         setShowHbo(current => !current);
                     });
-                }}>HBO Max</button>
-                <button onClick={() =>{
+                }}>HBO MAX</button>
+                <button className='click-tab' onClick={() =>{
                     handleClickDisney(() => {
                         setShowDisney(current => !current);
                     });
-                }}>Disney+</button>
-                <button onClick={() =>{
+                }}>DISNEY+</button>
+                <button className='click-tab' onClick={() =>{
                     handleClickHulu(() => {
                         setShowHulu(current => !current);
                     });
-                }}>Hulu</button>
+                }}>HULU</button>
             </div>
             {netflixMovies !== undefined ?
             <div>
                 {showNetflix && (
-                    <DiscoverMoviesMap discoverResults={netflixMovies} movieSelect={props.movieSelect} />
+                    <div>
+                        <h3>Stream with Netflix</h3>
+                        <hr></hr>
+                        <DiscoverMoviesMap discoverResults={netflixMovies} movieSelect={props.movieSelect} />
+                    </div>
                 )}
             </div>
             :null}
             {amazonMovies !== undefined ?
             <div>
                 {showAmazon && (
-                    <DiscoverMoviesMap discoverResults={amazonMovies} movieSelect={props.movieSelect} />
+                    <div>
+                        <h3>Stream with Amazon Prime Video</h3>
+                        <hr></hr>
+                        <DiscoverMoviesMap discoverResults={amazonMovies} movieSelect={props.movieSelect} />
+                    </div>
                 )}
             </div>
             :null}
             {hboMovies !== undefined ?
             <div>
                 {showHbo && (
-                    <DiscoverMoviesMap discoverResults={hboMovies} movieSelect={props.movieSelect} />
+                    <div>
+                        <h3>Stream with HBO Max</h3>
+                        <hr></hr>
+                        <DiscoverMoviesMap discoverResults={hboMovies} movieSelect={props.movieSelect} />
+                    </div>
                 )}
             </div>
             :null}
             {disneyMovies !== undefined ?
             <div>
                 {showDisney && (
-                    <DiscoverMoviesMap discoverResults={disneyMovies} movieSelect={props.movieSelect} />
+                    <div>
+                        <h3>Stream with Disney+</h3>
+                        <hr></hr>
+                        <DiscoverMoviesMap discoverResults={disneyMovies} movieSelect={props.movieSelect} />
+                    </div>
                 )}
             </div>
             :null}
             {huluMovies !== undefined ?
             <div>
                 {showHulu && (
-                    <DiscoverMoviesMap discoverResults={huluMovies} movieSelect={props.movieSelect} />
+                    <div>
+                        <h3>Stream with Hulu</h3>
+                        <hr></hr>
+                        <DiscoverMoviesMap discoverResults={huluMovies} movieSelect={props.movieSelect} />
+                    </div>
                 )}
             </div>
             :null}

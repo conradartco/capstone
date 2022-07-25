@@ -11,6 +11,7 @@ import FavoritesButton from "../Favorites/FavoritesButton";
 import MovieDirector from "./MovieDirector";
 import MovieCast from './MovieCast';
 import MovieCert from './MovieCert';
+import MovieDetailsRatingBar from './MovieDetailsRatingBar';
 import './MovieDetails.css';
 
 const MovieDetails = (props) => {
@@ -57,9 +58,6 @@ const MovieDetails = (props) => {
         var totalMinutes = Math.round(minutes);
         return totalHours + "h " + totalMinutes + "m";
     }
-    
-    // let ratingPercentage = Math.round((props.movieContent.vote_average / 10) * 100);
-    // console.log(ratingPercentage);
 
     return (
         <div>
@@ -69,6 +67,9 @@ const MovieDetails = (props) => {
             <div>
                 <div>
                     <h2>{props.movieContent.title} <span className='release-year'>{"(" + props.movieContent.release_date.slice(0, 4) + ")"}</span></h2>
+                </div>
+                <div>
+                    <MovieDetailsRatingBar color="darkgray" percentage={Math.round((props.movieContent.vote_average / 10) * 100)} height={20} />
                 </div>
                 <div>
                     <div>

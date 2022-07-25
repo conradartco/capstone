@@ -1,5 +1,10 @@
+// General Imports
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
+// Component Imports
+import nullImage from "../../images/MOVIE-NOIMAGE-2.jpg";
+import "../../App.css";
 
 const FoundMovies = (props) => {
 
@@ -11,13 +16,17 @@ const FoundMovies = (props) => {
     }
 
     return (
-        <div>
+        <div className="movies-found-viewport">
             {props.foundContent.map((movie, index) => {
                 return (
                     <div key={index}>
-                        <div onClick={() => selectMovie(movie)}>
-                            <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
-                            {/* <p>{movie.title}</p> */}
+                        <div className="movies-found-icon" onClick={() => selectMovie(movie)}>
+                            {movie.poster_path !== null ? (
+                                <img className="poster-fit" src={"https://image.tmdb.org/t/p/w342" + movie.poster_path} alt={movie.title + " movie poster"}/>
+                            ) : (
+                                <img src={nullImage} alt={"empty image for " + movie.title}/>
+                            )}
+                            <p><small><strong>{movie.title}</strong> {'('+movie.release_date.slice(0, 4)+')'}</small></p>
                         </div>
                     </div>
                 )

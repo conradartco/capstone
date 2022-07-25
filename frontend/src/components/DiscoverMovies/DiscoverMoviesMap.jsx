@@ -1,5 +1,9 @@
+// General Imports
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+
+// Component Imports
+import '../../App.css';
 
 const DiscoverMoviesMap = (props) => {
 
@@ -11,17 +15,17 @@ const DiscoverMoviesMap = (props) => {
     }
 
     return (
-        <div>
+        <div className="movie-list-viewport">
             {props.discoverResults.map((movie, index) => {
                 return (
                     <div key={index}>
-                        <div onClick={() => selectMovie(movie)}>
-                            <img src={"https://image.tmdb.org/t/p/w154" + movie.poster_path} alt={movie.title + " movie poster"}/>
-                            {/* <p>{movie.title}</p> */}
+                        <div className='movie-list-icon' onClick={() => selectMovie(movie)}>
+                            <img src={"https://image.tmdb.org/t/p/w185" + movie.poster_path} alt={movie.title + " movie poster"}/>
+                            <p><small><strong>{movie.title}</strong> {'('+movie.release_date.slice(0, 4)+')'}</small></p>
                         </div>
                     </div>
                 )
-            }).slice(0, 6)}
+            })}
         </div>
     )
 }

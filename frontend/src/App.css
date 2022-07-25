@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 *,
 *::before,
@@ -10,20 +10,37 @@
 
 html {
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
+  color: rgb(25, 25, 25);
+}
+
+h2 {
+  font-weight: 800;
+  font-size: 30px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  text-align: left;
+}
+
+h3 {
+  font-weight: 300;
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 25px;
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: left;
 }
 
-button {
+/* button {
   background-color: transparent;
   border: 2px solid steelblue;
   color: steelblue;
   font-size: 1rem;
   font-family: inherit;
-  max-width: 100px;
   padding: 0.5rem 0.5rem;
 }
 
@@ -31,6 +48,26 @@ button:hover {
   cursor: pointer;
   color: white;
   background-color: steelblue;
+} */
+
+.click-tab {
+  padding: 1em;
+  font-family: inherit;
+  font-size: 1rem;
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  width: 210px;
+  margin-top: 10px;
+}
+
+.click-tab:hover {
+  background-color: rgb(146, 146, 146);
+}
+
+.tab-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
@@ -60,15 +97,17 @@ button:hover {
 .movie-list-viewport {
   display: flex;
   overflow-x: auto;
+  margin-top: 30px;
 }
 
 .movie-list-icon {
-  padding-right: 10px;
+  margin-right: 15px;
+  margin-bottom: 20px;
 }
 
 .home-header-container {
   width: 100%;
-  height: 500px;
+  height: 650px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -76,4 +115,55 @@ button:hover {
   display: inline-grid;
   justify-items: center;
   align-items: center;
+  margin-bottom: 30px;
+}
+
+.movies-found-viewport {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.movies-found-icon {
+  margin-bottom: 35px;
+  margin-right: 18px;
+  display: flex;
+  flex-direction: column;
+  width: 342px;
+}
+
+.poster-fit {
+  width: 342px;
+  height: 513px;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.viewport-container {
+  margin-bottom: 30px;
+  margin-top: 65px;
+}
+
+.search-container {
+  transform: translateY(200px);
+}
+
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-color: none;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: rgb(150, 150, 150);
 }

@@ -1,5 +1,8 @@
+// General Imports
 import React, { useState } from 'react';
 
+// Component Imports
+import './SearchMovies.css';
 
 const SearchMovies = (props) => {
 
@@ -14,12 +17,12 @@ const SearchMovies = (props) => {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form className='form-container' onSubmit={handleSubmit}>
                 <div>
-                    <input type="str" value={searchQuery} placeholder="Search for a movie" onChange={(event) => setSearchQuery(event.target.value)}/>
+                    <input className='search-input' type="str" value={searchQuery} placeholder="Search for a movie" onChange={(event) => setSearchQuery(event.target.value)}/>
                 </div>
                 <div>
-                    <button type="submit">GO!</button>
+                    <button className='search-button' type="submit">GO</button>
                 </div>
             </form>
         </div>

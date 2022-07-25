@@ -5,6 +5,7 @@ import axios from "axios";
 
 // Component Imports
 import SearchMovies from "../SearchMovies/SearchMovies";
+import "../../App.css";
 
 const UserSearchMovies = (props) => {
 
@@ -19,7 +20,7 @@ const UserSearchMovies = (props) => {
     }
 
     return (
-        <div>
+        <div className='search-container'>
             <SearchMovies searchQueryData={searchFilter} />
         </div>
     )

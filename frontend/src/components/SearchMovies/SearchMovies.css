@@ -1,0 +1,30 @@
+.search-input {
+    padding: 10px 15px;
+    width: 550px;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 17px;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.search-button {
+    padding: 9px 12px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 15px;
+    font-weight: 900;
+    font-family: inherit;
+    font-size: larger;
+    background-color: white;
+    color: darkblue;
+}
+
+.search-button:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 139, 0.5);
+}

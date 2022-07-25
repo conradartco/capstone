@@ -81,14 +81,16 @@ const HomePage = (props) => {
       </div>
       <div className="container">
         {searchedMovie !== undefined ?
-        <div>
+        <div className="viewport-container">
+          <h2>SEARCH RESULTS</h2>
+          <hr></hr>
           <FoundMovies movieSelect={props.movieSelect} foundContent={searchedMovie} />
         </div>
         : null}
         <div>
           {user ? (
-            <div>
-              <h2>My Watchlist</h2>
+            <div className="viewport-container">
+              <h2>MY WATCHLIST</h2>
               <hr></hr>
               <WatchlistHome movieSelect={props.movieSelect}/>
             </div>
@@ -96,23 +98,23 @@ const HomePage = (props) => {
             <p></p>
           )}
         </div>
-        <div>
-          <h2>Trending</h2>
+        <div className="viewport-container">
+          <h2>TRENDING</h2>
           <hr></hr>
           <TopMovies foundContent={topMovies} movieSelect={props.movieSelect}/>
         </div>
-        <div>
-          <h2>Coming Soon</h2>
+        <div className="viewport-container">
+          <h2>COMING SOON</h2>
           <hr></hr>
           <NewReleaseMovies foundContent={soonMovies} movieSelect={props.movieSelect}/>
         </div>
-        <div>
-          <h2>Top Rated</h2>
+        <div className="viewport-container">
+          <h2>TOP RATED</h2>
           <hr></hr>
           <TopRatedMovies foundContent={topRatedMovies} movieSelect={props.movieSelect}/>
         </div>
-        <div>
-          <h2>Discover</h2>
+        <div className="viewport-container">
+          <h2>DISCOVER</h2>
           <hr></hr>
           <DiscoverMovies movieSelect={props.movieSelect}/>
         </div>
