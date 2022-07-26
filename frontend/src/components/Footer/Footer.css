@@ -10,8 +10,8 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: steelblue;
-  color: #90cea1;
+  background: rgb(40, 40, 40);
+  color: #ebeef0;
   box-shadow: 4px 2px 5px gray;
 }
 
@@ -23,5 +23,6 @@ footer {
   font-size:smaller;
   /* color: #0d253f; */
   /* color: #01b4e4; */
-  color: #90cea1;
+  /* color: #90cea1; */
+  color: #ebeef0;
 }

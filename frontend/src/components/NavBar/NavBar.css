@@ -10,9 +10,9 @@ li {
 }
 
 .navBar {
-  background: steelblue;
-  box-shadow: 4px 2px 5px gray;
-  color: white;
+  background: rgb(40, 40, 40);
+  box-shadow: 4px 2px 5px rgb(25, 25, 25);
+  color: #ebeef0;
   padding: 1.5rem 2rem;
 }
 
@@ -22,6 +22,7 @@ li {
   border-radius: 5px;
   color: white;
   padding: 0.4rem 0.5rem;
+  font-family: 'Montserrat';
 }
 
 .navBar button:hover {

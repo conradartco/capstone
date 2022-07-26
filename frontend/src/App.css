@@ -119,8 +119,16 @@ button:hover {
   position: relative;
   display: inline-grid;
   justify-items: center;
-  align-items: center;
+  justify-content: center;
+  align-content: center;
   margin-bottom: 30px;
+}
+
+.home-header-logo {
+  width: 300px;
+  padding: 30px;
+  border: 2px solid white;
+  transform: translateY(-20px);
 }
 
 .movies-found-viewport {
@@ -155,7 +163,7 @@ button:hover {
 }
 
 .search-container {
-  transform: translateY(200px);
+  transform: translateY(60px);
 }
 
 

@@ -6,6 +6,7 @@
     margin-top: 100px;
     border-radius: 20px;
     height: 600px;
+    display: flex;
 }
 
 .register-container {

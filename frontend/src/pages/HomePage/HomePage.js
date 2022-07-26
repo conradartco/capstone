@@ -14,7 +14,8 @@ import WatchlistHome from "../../components/Watchlist/WatchlistHome";
 import TopRatedMovies from "../../components/TopRatedMovies/TopRatedMovies";
 import DiscoverMovies from "../../components/DiscoverMovies/DiscoverMovies";
 import FoundMovies from "../../components/FoundMovies/FoundMovies";
-import homeHeroImage from "../../images/CAPSTONE-HEROIMAGE-01-test.jpg";
+import homeHeroImage from "../../images/CAPSTONE-HEROIMAGE-02.jpg";
+import filmLinkLogo from "../../images/FILMLINK-LOGO01.png";
 
 const HomePage = (props) => {
   
@@ -69,6 +70,7 @@ const HomePage = (props) => {
   function movieHeader() {
       return (
           <div className="home-header-container" style={{ backgroundImage: 'url(' + homeHeroImage + ')' }}>
+            <img className="home-header-logo" src={filmLinkLogo} alt="The Film Link - Logo"/>
             <UserSearchMovies movieSelect={props.movieSelect} movieFromSearch={setSearchedMovie}/>
           </div>
       )

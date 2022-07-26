@@ -26,7 +26,7 @@ const FoundMovies = (props) => {
                             ) : (
                                 <img src={nullImage} alt={"empty image for " + movie.title}/>
                             )}
-                            <p><small><strong>{movie.title}</strong> {'('+movie.release_date.slice(0, 4)+')'}</small></p>
+                            <p><small><strong>{movie.title}</strong> {movie.release_date !== undefined ? '('+movie.release_date.slice(0, 4)+')' : null}</small></p>
                         </div>
                     </div>
                 )
