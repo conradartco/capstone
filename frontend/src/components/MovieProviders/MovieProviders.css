@@ -1,5 +1,6 @@
 .provider-container {
     display: flex;
+    overflow-x: auto;
 }
 
 .provider-height {

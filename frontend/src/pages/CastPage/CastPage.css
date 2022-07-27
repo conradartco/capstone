@@ -7,7 +7,9 @@
 }
 
 .logo-header {
-    width: 500px;
+    max-width: 500px;
+    max-height: 365px;
+    object-fit: scale-down;
 }
 
 .cast-header-container {
