@@ -11,9 +11,12 @@ li {
 
 .navBar {
   background: rgb(40, 40, 40);
-  box-shadow: 4px 2px 5px rgb(25, 25, 25);
+  /* box-shadow: 4px 2px 5px rgb(25, 25, 25); */
   color: #ebeef0;
   padding: 1.5rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .navBar button {
