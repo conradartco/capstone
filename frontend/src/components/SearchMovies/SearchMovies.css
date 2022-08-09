@@ -28,3 +28,48 @@
     background-color: rgba(255, 255, 255, 0.5);
     color: rgba(0, 0, 139, 0.5);
 }
+
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.filter-dropdown {
+    background-color: white;
+    color: black;
+    padding: 9px 12px;
+    font-size: larger;
+    font-family: inherit;
+    font-weight: 200;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.filter-dropdown:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 139, 0.5);
+}
+
+.filter-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f6f6;
+    min-width: 230px;
+    border: 1px solid #ddd;
+    z-index: 1;
+}
+
+.filter-dropdown-content li {
+    color: black;
+    padding: 9px 12px;
+    text-decoration: none;
+    display: block;
+}
+
+.filter-dropdown-content li:hover {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: rgba(0, 0, 139, 0.5);
+}
+
+.show {display:block;}
