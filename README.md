@@ -1,18 +1,18 @@
-# ReactDjango_JWT_StarterCode
+# The Film Link
 
-Starter code for full stack React + Django applications using JWT for authentication/authorization and a fully working register/login system on the React side
+Welcome to The Film Link!
+This is a movie database application that can find any movie on your mind - and provide all details available for that movie, including:
+Name, Description, User Rating, Release Date, Runtime, Genres, Cast & Crew, Certficiation, Trailers, Posters, Images, Watch Providers
 
-## NOTE
+## Registering
 
-"cars" app in Django backend for example purposes only. Study it closely and review provided resources to understand how to properly create protected endpoints that require a JWT token for authorization.
+User's may register with The Film Link, but registering is not required as this application was designed to be used by anyone interested
+Registered users do however have the benefit of:
+Leaving reviews on movies, saving movies to a user-profile including Watchlist and Favorites lists
+Watchlist and Favorite movies can be browsed and edited at anytime from the user-profile page
 
-## For implementing user roles
+## Upcoming Sprints
 
-- see comments in the following files in the order they are listed
-  - backend/authentication/models.py
-  - backend/authentication/serializers.py (note that there are several places needing modification in that file)
-- If modifying the User class in authentication/models.py, make sure to drop your existing database,
-  create it, and run migrations from scratch
-- for a great reference, see the following article: https://simpleisbetterthancomplex.com/tutorial/2018/01/18/how-to-implement-multiple-user-types-with-django.html
-  - note that this article is from 2018 and dealing with a full stack Django application scenario with HTML/CSS templates. The principles of setting up the backend portion for User roles is still valid!
-- once user roles are set up on your backend, you can now utilize them on the frontend. Recommend reviewing the React Router slideshow for ideas on how to use descendant routes and conditional rendering to control who can access what parts of your application based on a role!
+Currently developing the logic for including TV as a searchable option, as well as 'People' and 'Companies' (production companies)
+Later will develop specifc pages designed for TV Series results and Cast/Crew person results
+Later will develop the ability to share movies between Film Link users

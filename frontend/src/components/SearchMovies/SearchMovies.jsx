@@ -7,21 +7,21 @@ import './SearchMovies.css';
 const SearchMovies = (props) => {
 
     const [searchQuery, setSearchQuery] = useState('');
-    const [showFilterOptions, setShowFilterOptions] = useState(false);
-
-    const handleShowFilter = event => {
-        setShowFilterOptions(current => !current);
-    }
 
     function handleSubmit(event) {
         event.preventDefault();
+        if (document.getElementById('filterSearch').value === '1') {
+            props.searchMethod("movie");
+        } else if (document.getElementById('filterSearch').value === '2') {
+            props.searchMethod("tv");
+        } else if (document.getElementById('filterSearch').value === '3') {
+            props.searchMethod("person");
+        } else if (document.getElementById('filterSearch').value === '4') {
+            props.searchMethod("company");
+        }
         let newSearch = searchQuery.toLowerCase();
         // console.log("SearchBar handleSubmit value: ", newSearch);
         props.searchQueryData(newSearch);
-    }
-
-    function filterSearchFunction(method) {
-        props.searchMethod(method);
     }
 
 
@@ -31,19 +31,14 @@ const SearchMovies = (props) => {
                 <div>
                     <input className='search-input' type="str" value={searchQuery} placeholder="Search for a movie" onChange={(event) => setSearchQuery(event.target.value)}/>
                 </div>
-                <div className='dropdown-container'>
-                    <button onClick={() =>{
-                    handleShowFilter(() => {
-                        setShowFilterOptions(current => !current);
-                    })}} className="filter-dropdown">Filter By...</button>
-                    {showFilterOptions && (
-                        <div id='filterSearch' className='filter-dropdown-content'>
-                            <p >Film</p>
-                            <p >TV Series</p>
-                            <p >People</p>
-                            <p >Companies</p>
-                        </div>
-                    )}
+                <div>
+                    <select name='filterSearch' id='filterSearch' required>
+                        <option>Select...</option>
+                        <option value="1">Film</option>
+                        <option value="2">TV Series</option>
+                        <option value="3">People</option>
+                        <option value="4">Companies</option>
+                    </select>
                 </div>
                 <div>
                     <button className='search-button' type="submit">GO</button>
