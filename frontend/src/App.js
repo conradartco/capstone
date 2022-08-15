@@ -8,6 +8,7 @@ import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import MoviePage from "./pages/MoviePage/MoviePage";
+import TVPage from "./pages/TVPage/TVPage";
 import CastPage from "./pages/CastPage/CastPage";
 import UserProfilePage from "./pages/UserProfilePage/UserProfilePage";
 
@@ -21,13 +22,15 @@ import PrivateRoute from "./utils/PrivateRoute";
 function App() {
 
   const [movie, setMovie] = useState([]);
+  const [tv, setTV] = useState([]);
 
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path="/" element={<HomePage movieSelect={setMovie}/>} />
+        <Route path="/" element={<HomePage movieSelect={setMovie} tvSelect={setTV}/>} />
         <Route path="/movie" element={<MoviePage movieSelect={movie}/>} />
+        <Route path="/tv" element={<TVPage tvSelect={tv}/>} />
         <Route path="/cast" element={<CastPage movieSelect={movie}/>} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />

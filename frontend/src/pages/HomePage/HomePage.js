@@ -14,6 +14,7 @@ import WatchlistHome from "../../components/Watchlist/WatchlistHome";
 import TopRatedMovies from "../../components/TopRatedMovies/TopRatedMovies";
 import DiscoverMovies from "../../components/DiscoverMovies/DiscoverMovies";
 import FoundMovies from "../../components/FoundMovies/FoundMovies";
+import FoundTV from "../../components/FoundMovies/FoundTV";
 import homeHeroImage from "../../images/CAPSTONE-HEROIMAGE-02.jpg";
 import filmLinkLogo from "../../images/FILMLINK-LOGO01.png";
 
@@ -24,6 +25,7 @@ const HomePage = (props) => {
   const [soonMovies, setSoonMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
   const [searchedMovie, setSearchedMovie] = useState(undefined);
+  const [searchedTV, setSearchedTV] = useState(undefined);
 
   const getTopMovies = async () => {
     try {
@@ -71,7 +73,7 @@ const HomePage = (props) => {
       return (
           <div className="home-header-container" style={{ backgroundImage: 'url(' + homeHeroImage + ')' }}>
             <img className="home-header-logo" src={filmLinkLogo} alt="The Film Link - Logo"/>
-            <UserSearchMovies movieSelect={props.movieSelect} movieFromSearch={setSearchedMovie}/>
+            <UserSearchMovies movieSelect={props.movieSelect} movieFromSearch={setSearchedMovie} tvFromSearch={setSearchedTV} tvSelect={props.tvSelect}/>
           </div>
       )
   }
@@ -87,6 +89,13 @@ const HomePage = (props) => {
           <h2>SEARCH RESULTS</h2>
           <hr></hr>
           <FoundMovies movieSelect={props.movieSelect} foundContent={searchedMovie} />
+        </div>
+        : null}
+        {searchedTV !== undefined ?
+        <div className="viewport-container">
+          <h2>SEARCH RESULTS</h2>
+          <hr></hr>
+          <FoundTV tvSelect={props.tvSelect} foundContent={searchedTV} />
         </div>
         : null}
         <div>

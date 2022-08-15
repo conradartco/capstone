@@ -33,11 +33,11 @@ const SearchMovies = (props) => {
         <div>
             <form className='search-form-container' onSubmit={handleSubmit}>
                 <div>
-                    <input className='search-input' type="str" value={searchQuery} placeholder="Search for a movie" onChange={(event) => setSearchQuery(event.target.value)}/>
+                    <input className='search-input' type="str" value={searchQuery} placeholder="Search" onChange={(event) => setSearchQuery(event.target.value)}/>
                 </div>
                 <div>
                     <select name='filterSearch' id='filterSearch' onChange={filterSelection} required>
-                        <option>Select...</option>
+                        <option>Filter Search</option>
                         <option value="1">Film</option>
                         <option value="2">TV Series</option>
                         <option value="3">People</option>
