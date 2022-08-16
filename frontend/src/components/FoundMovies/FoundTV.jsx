@@ -22,11 +22,11 @@ const FoundTV = (props) => {
                     <div key={index}>
                         <div className="movies-found-icon" onClick={() => selectTV(show)}>
                             {show.poster_path !== null ? (
-                                <img className="poster-fit" src={"https://image.tmdb.org/t/p/w342" + show.poster_path} alt={show.title + " show poster"}/>
+                                <img className="poster-fit" src={"https://image.tmdb.org/t/p/w342" + show.poster_path} alt={show.name + " show poster"}/>
                             ) : (
-                                <img src={nullImage} alt={"empty image for " + show.title}/>
+                                <img src={nullImage} alt={"empty image for " + show.name}/>
                             )}
-                            <p><small><strong>{show.title}</strong> {show.release_date !== undefined ? '('+show.release_date.slice(0, 4)+')' : null}</small></p>
+                            <p><small><strong>{show.name}</strong> {show.first_air_date !== undefined ? '('+show.first_air_date.slice(0, 4)+')' : null}</small></p>
                         </div>
                     </div>
                 )

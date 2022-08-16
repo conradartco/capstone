@@ -9,7 +9,7 @@ import ReviewList from '../../components/Review/ReviewList';
 import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
 import MovieProviders from '../../components/MovieProviders/MovieProviders';
-import MovieImages from '../../components/MovieImages/MovieImages';
+import TVImages from '../../components/TVImages/TVImages';
 
 const TVPage = (props) => {
 
@@ -36,6 +36,13 @@ const TVPage = (props) => {
    
     return (
         <div>
+            {tvSelect ?
+            <>
+            <div>
+                <TVImages tvContent={tvSelect} />
+            </div>
+            </>
+            : null}
             <div className='back-container'>
                 <button className='back-button' onClick={() => navigate(-1)}>Back</button>
             </div>
