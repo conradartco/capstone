@@ -14,7 +14,8 @@ const ReviewList = (props) => {
 
     const getReviews = async () => {
         try {
-            let response = await axios.get("http://127.0.0.1:8000/api/review/" + props.movieContent.id + "/");
+            console.log("props.content in getReviews: ", props.content);
+            let response = await axios.get("http://127.0.0.1:8000/api/review/" + props.sourceContent.id + "/");
             // console.log("response.data in getReviews: ", response.data);
             setReviews(response.data);
         } catch (err) {
@@ -36,7 +37,7 @@ const ReviewList = (props) => {
 
     useEffect(() => {
         getReviews();
-    }, [props.movieContent.id]);
+    }, [props.sourceContent.id]);
 
     return (
         <div>
@@ -46,7 +47,7 @@ const ReviewList = (props) => {
             
             {user ? (
                 <div>
-                    <ReviewForm movieContent={props.movieContent} addNewReview={addNewReview}/>
+                    <ReviewForm sourceContent={props.sourceContent} addNewReview={addNewReview}/>
                 </div>
             ) : (
                 <p>Login or Register to leave a review!</p>

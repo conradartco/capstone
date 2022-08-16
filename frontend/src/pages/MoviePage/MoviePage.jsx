@@ -64,7 +64,8 @@ const MoviePage = (props) => {
                         <hr></hr>
                     </div>
                     <div>
-                        <ReviewList movieContent={movieSelect} />
+                        {console.log(movieSelect)}
+                        <ReviewList sourceContent={movieSelect} />
                     </div>
                 </div>
                 </>

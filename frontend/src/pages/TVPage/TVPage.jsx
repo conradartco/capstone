@@ -10,6 +10,7 @@ import MovieDetails from '../../components/MovieDetails/MovieDetails';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
 import MovieProviders from '../../components/MovieProviders/MovieProviders';
 import TVImages from '../../components/TVImages/TVImages';
+import '../MoviePage/MoviePage.css';
 
 const TVPage = (props) => {
 
@@ -43,6 +44,29 @@ const TVPage = (props) => {
             </div>
             </>
             : null}
+            <div>
+                {tvSelect ?
+                <>
+                <div>
+                    {/* TV Details */}
+                </div>
+                <div className='bottom-content'>
+                    <div>
+                        {/* TV Providers */}
+                    </div>
+                    <div>
+                        {/* TV Media */}
+                    </div>
+                    <div>
+                        {/* TV Reviews */}
+                    </div>
+                    <div>
+                        <ReviewList sourceContent={tvSelect} />
+                    </div>
+                </div>
+                </>
+                : null}
+            </div>
             <div className='back-container'>
                 <button className='back-button' onClick={() => navigate(-1)}>Back</button>
             </div>

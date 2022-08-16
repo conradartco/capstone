@@ -11,7 +11,7 @@ const ReviewForm = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         let newReview = {
-            movie_id: props.movieContent.id,
+            movie_id: props.sourceContent.id,
             text: text
         }
         props.addNewReview(newReview);
