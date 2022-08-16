@@ -6,7 +6,7 @@ import { TMDbAPIKey } from '../../keys';
 
 // Component Imports
 import ReviewList from '../../components/Review/ReviewList';
-import MovieDetails from '../../components/MovieDetails/MovieDetails';
+import TVDetails from '../../components/TVDetails/TVDetails';
 import MovieMedia from '../../components/MovieMedia/MovieMedia';
 import MovieProviders from '../../components/MovieProviders/MovieProviders';
 import TVImages from '../../components/TVImages/TVImages';
@@ -48,7 +48,7 @@ const TVPage = (props) => {
                 {tvSelect ?
                 <>
                 <div>
-                    {/* TV Details */}
+                    <TVDetails sourceContent={tvSelect} />
                 </div>
                 <div className='bottom-content'>
                     <div>
