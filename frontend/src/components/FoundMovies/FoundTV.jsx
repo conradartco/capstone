@@ -26,7 +26,7 @@ const FoundTV = (props) => {
                             ) : (
                                 <img src={nullImage} alt={"empty image for " + show.name}/>
                             )}
-                            <p><small><strong>{show.name}</strong> {show.first_air_date !== undefined ? '('+show.first_air_date.slice(0, 4)+')' : null}</small></p>
+                            <p><small><strong>{show.name}</strong> {show.first_air_date !== undefined ? '(' + show.first_air_date.slice(0, 4) + ')' : null}</small></p>
                         </div>
                     </div>
                 )
