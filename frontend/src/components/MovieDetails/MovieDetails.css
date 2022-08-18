@@ -168,3 +168,25 @@
     text-transform: uppercase;
     font-size: large;
 }
+
+.not-in-prod {
+    padding: 15px;
+    font-size: x-small;
+    background-color: gray;
+    color: white;
+    margin-top: 15px;
+    width: 185px;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+
+.is-in-prod {
+    padding: 15px;
+    font-size: x-small;
+    background-color: green;
+    color: white;
+    margin-top: 15px;
+    width: 185px;
+    border-radius: 30px;
+    text-transform: uppercase;
+}

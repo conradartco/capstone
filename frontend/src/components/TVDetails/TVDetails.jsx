@@ -46,6 +46,11 @@ const TVDetails = (props) => {
                                 <p>{props.sourceContent.first_air_date.slice(0, 4)} – {props.sourceContent.last_air_date.slice(0, 4)} <span className='us-tag'>{"(US)"}</span> {runtimeOperation(props.sourceContent.episode_run_time)}</p>
                             </div>
                             <p>{genreArray.join(" / ")}</p>
+                            {props.sourceContent.in_production === false ? (
+                                <p className='not-in-prod'><strong>No longer in production</strong></p>
+                            ) : (
+                                <p className='is-in-prod'><strong>Currently in production</strong></p>
+                            )}
                             {user ? (
                                 <div className='user-add-buttons'>
                                     <WatchlistButton movieContent={props.sourceContent}/>
@@ -56,6 +61,7 @@ const TVDetails = (props) => {
                             )}
                         </div>
                         <p className='movie-tagline'>{props.sourceContent.tagline}</p>
+                        <p><strong>Format: </strong>{props.sourceContent.type}</p>
                         <div>
                             <p className='overview-tag'><strong>Overview</strong></p>
                             <p className='overview-body'>{props.sourceContent.overview}</p>
