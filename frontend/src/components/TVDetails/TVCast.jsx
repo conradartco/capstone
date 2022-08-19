@@ -33,8 +33,10 @@ const TVCast = (props) => {
                             </div>
                             <div className='cast-name'>
                                 <p><strong>{person.name}</strong></p>
-                                {person.roles.character ? (
-                                    <p><small>{person.roles.character}</small></p>
+                                {person.roles >= [1] ? (
+                                    <p><small>{person.roles.map(role=> {
+                                        return (role.character)
+                                    }).join(', ')}</small></p>
                                 ) : (
                                     <p><small>{"(role not documented)"}</small></p>
                                 )}

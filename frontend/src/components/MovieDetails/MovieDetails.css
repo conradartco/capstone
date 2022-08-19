@@ -114,6 +114,8 @@
 
 .cast-name {
     padding: 0 12px;
+    overflow-y: hidden;
+    height: 85px;
 }
 
 .cast-container {
