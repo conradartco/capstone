@@ -7,6 +7,7 @@ import axios from 'axios';
 
 // Component Imports
 import MovieDetailsRatingBar from '../MovieDetails/MovieDetailsRatingBar';
+import TVCast from './TVCast';
 import WatchlistButton from '../Watchlist/WatchlistButton';
 import FavoritesButton from '../Favorites/FavoritesButton';
 import '../MovieDetails/MovieDetails.css';
@@ -14,6 +15,7 @@ import '../MovieDetails/MovieDetails.css';
 const TVDetails = (props) => {
 
     const { user } = useContext(AuthContext);
+    const [credits, setCredits] = useState(undefined);
 
     let genreArray = props.sourceContent.genres.map(genre => genre.name);
 
@@ -25,6 +27,20 @@ const TVDetails = (props) => {
         var totalMinutes = Math.round(minutes);
         return totalHours + "h " + totalMinutes + "m";
     }
+
+    const getTVCredits = async () => {
+        try {
+            let response = await axios.get("https://api.themoviedb.org/3/tv/" + props.sourceContent.id + "/aggregate_credits?api_key=" + TMDbAPIKey + "&language=en-US")
+            console.log("response in getTVCredits: ", response.data);
+            setCredits(response.data);
+        } catch (err) {
+            console.log("err in getTVCredits: ", err);
+        }
+    }
+
+    useEffect(() => {
+        getTVCredits();
+    }, []);
 
     return (
         <div className='movie-card'>
@@ -69,6 +85,11 @@ const TVDetails = (props) => {
                     </div>
                 </div>
             </div>
+            {credits !== undefined ?
+            <div>
+                <TVCast crewDetails={credits} sourceContent={props.sourceContent}/>
+            </div>
+            : null}
         </div>
     )
 }
